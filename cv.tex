@@ -1,0 +1,182 @@
+\documentclass[12pt,a4paper,sans]{moderncv}
+\usepackage[scale=0.75]{geometry}
+\graphicspath{{images/}} % path to images
+
+
+%-------------------------------------------------------------------------------
+%     create and set new toggle
+%-------------------------------------------------------------------------------
+
+%-----        create and set new toggle    -------------------------------------
+\newtoggle{langEnglish}
+\newtoggle{langRussian}
+
+\toggletrue{langEnglish}
+\togglefalse{langRussian}
+
+\newtoggle{short}
+\newtoggle{long}
+
+\toggletrue{short}
+\togglefalse{long}
+
+%-------------------------------------------------------------------------------
+% parse version of cv from \jobname
+%-------------------------------------------------------------------------------
+
+\newcommand\ifjobname[2]{
+    \expandafter\ifstrequal\expandafter{\jobname}{cv_TOIGILDIN_VLADISLAV#1}
+    {#2}
+    {}
+}
+
+\moderncvtheme[blue]{classic} % theme by default
+\ifjobname{_diff}{
+    \input{style.tex}
+}
+
+\ifjobname{_eng_short}{
+    \toggletrue{langEnglish}
+    \togglefalse{langRussian}
+    \toggletrue{short}
+    \togglefalse{long}
+}
+
+\ifjobname{_rus_short}{
+    \togglefalse{langEnglish}
+    \toggletrue{langRussian}
+    \toggletrue{short}
+    \togglefalse{long}
+}
+
+\ifjobname{_eng_long}{
+    \toggletrue{langEnglish}
+    \togglefalse{langRussian}
+    \togglefalse{short}
+    \toggletrue{long}
+}
+
+\ifjobname{_rus_long}{
+    \togglefalse{langEnglish}
+    \toggletrue{langRussian}
+    \togglefalse{short}
+    \toggletrue{long}
+}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+\usepackage{polyglossia}   %% загружает пакет многоязыковой вёрстки
+\iftoggle{langEnglish}{
+    \setdefaultlanguage{english}  %% устанавливает главный язык документа
+}{
+    \setdefaultlanguage[spelling=modern]{russian}  %% устанавливает главный язык документа
+    \setotherlanguage{english} %% объявляет второй язык документа
+}
+
+\iftoggle{short}{
+    \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+}{
+    \usepackage{lastpage}
+    \pagestyle{fancy}
+    \rfoot{\thepage/\pageref{LastPage}}
+}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{FreeSans} %% задаёт основной шрифт документа
+%\setsansfont{CMU Sans Serif}                    %% задаёт шрифт без засечек
+%\setmonofont{CMU Typewriter Text}               %% задаёт моноширинный шрифт
+
+
+\newcommand\EngRus[2]{
+    \iftoggle{langEnglish}{#1}{ % else
+        \iftoggle{langRussian}{#2}{}
+    }
+}
+
+% \usepackage[usenames]{xcolor}  %%% this does not work = thanks to idiots from modernCV package.
+%
+\setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+
+\firstname{\EngRus{Vladislav}{Владислав}}
+\familyname{\EngRus{Toigildin}{Тойгильдин}}
+\title{Softrware Developer}
+\address{\EngRus{Moscow, Russia}{Россия, Москва}}
+\phone[mobile]{+7~916~576~66~39}
+\email{vladisalv@yandex.ru}
+\extrainfo{%
+    \\%
+    \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
+    \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
+}
+\photo[64pt][0.4pt]{photo.jpg}
+\renewcommand\refname{Selected publications}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+\makecvtitle
+
+\newtoggle{DEBUG}
+%\toggletrue{DEBUG}
+\togglefalse{DEBUG}
+
+\iftoggle{DEBUG}{
+    \iftoggle{langEnglish}{You use english}{}
+    \iftoggle{langRussian}{You use russian}{}
+    \iftoggle{short}{You use short}{}
+    \iftoggle{long}{You use long}{}
+\jobname
+}
+
+\section{\EngRus{Experience}{Опыт работы}}
+\cventry{2015-present}{Ph.D. in Electrical Engineering}{\newline The University of Neverhood, Australia}{\newline \textit{Subject}: Bullshit structure in vacuum}{\newline \textit{Supervisors}: Dr. Shrinivasan, Prof. Syn Hui Vchai}{}
+\cventry{2010-2015}{M.S. in Physics}{Neverhood Institute Of Technology}{\newline \textit{Subject}: Chemical composition of Bullshit}{\newline \textit{Supervisors}: Prof. Syn Hui Vchai}{}
+,
+
+%\section{\EngRus{Education}{Образование}}
+%\cventry{2010--2015}\
+%        {\EngRUs{Specialist in Applied Mathematics and Computer Science}\
+%                {Специалист {Lomonosov Moscow State University}
+%{Moscow}\
+%{\textit{Grade}}{Description}
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+%\cventry{2015-present}{Ph.D. in Electrical Engineering}{\newline The University of Neverhood, Australia}{\newline \textit{Subject}: Bullshit structure in vacuum}{\newline \textit{Supervisors}: Dr. Shrinivasan, Prof. Syn Hui Vchai}{}
+%\cventry{2010-2015}{M.S. in Physics}{Neverhood Institute Of Technology}{\newline \textit{Subject}: Chemical composition of Bullshit}{\newline \textit{Supervisors}: Prof. Syn Hui Vchai}{}
+%
+\section{Research Experience}
+\cventry{April 2009 --\\ February 2010 }{Senior Engineer}{Bullshit Institute of Technology}{\newline Study of Horseshit}{}{}
+
+\section{Fellowships and Awards}
+\cvline{2009}{Moscow Conference Award (Diploma of excellence)}
+
+\section{Professional Participation}
+\cvline{Membership}{Society of Bullshit.}
+
+\section{Computer skills}
+\cvitem{OS}{UNIX, Debian GNU/Linux, Windows NT.}
+
+\section{Fields of Scientific Interest}
+\cvitem{Image\,processing}{images deconvolution, noise analysis in CCD/CMOS-registered images.}
+
+% Publications from a BibTeX file
+\nocite{*}
+\bibliographystyle{unsrt}
+
+\bibliography{poopkinbiblio}       % 'publications' is the name of a BibTeX file
+\normalsize
+
+\section{Personal information}
+% \cventry{Date of birth}{June 20, 1982}{}{Russian Federation}{}{}
+\cventry{Languages}{English (IELTS, 7 Overall: 6.5L, 8.5R, 6.0W, 6.0S)}{Russian (native), Esperanto (basic)}{}{}{}
+
+
+\end{document}
