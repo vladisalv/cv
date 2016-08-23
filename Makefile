@@ -4,7 +4,7 @@ OUTPUT = --output-directory=$(OUTPUT_DIR)
 NAME = cv_TOIGILDIN_VLADISLAV
 JOBNAME = --jobname=$(NAME)
 
-.PHONY: all clean view copy diff_styles diff_colors
+.PHONY: all clean view move diff_styles diff_colors
 
 #all: mkdir_output clean eng_short rus_short view
 all: mkdir_output eng rus view
