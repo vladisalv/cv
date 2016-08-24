@@ -14,11 +14,11 @@
 \toggletrue{langEnglish}
 \togglefalse{langRussian}
 
-\newtoggle{short}
-\newtoggle{long}
+\newtoggle{compact}
+\newtoggle{detailed}
 
-\toggletrue{short}
-\togglefalse{long}
+\toggletrue{compact}
+\togglefalse{detailed}
 
 %-------------------------------------------------------------------------------
 % parse version of cv from \jobname
@@ -35,32 +35,32 @@
     \input{style.tex}
 }
 
-\ifjobname{_eng_short}{
+\ifjobname{_eng_compact}{
     \toggletrue{langEnglish}
     \togglefalse{langRussian}
-    \toggletrue{short}
-    \togglefalse{long}
+    \toggletrue{compact}
+    \togglefalse{detailed}
 }
 
-\ifjobname{_rus_short}{
+\ifjobname{_rus_compact}{
     \togglefalse{langEnglish}
     \toggletrue{langRussian}
-    \toggletrue{short}
-    \togglefalse{long}
+    \toggletrue{compact}
+    \togglefalse{detailed}
 }
 
-\ifjobname{_eng_long}{
+\ifjobname{_eng_detailed}{
     \toggletrue{langEnglish}
     \togglefalse{langRussian}
-    \togglefalse{short}
-    \toggletrue{long}
+    \togglefalse{compact}
+    \toggletrue{detailed}
 }
 
-\ifjobname{_rus_long}{
+\ifjobname{_rus_detailed}{
     \togglefalse{langEnglish}
     \toggletrue{langRussian}
-    \togglefalse{short}
-    \toggletrue{long}
+    \togglefalse{compact}
+    \toggletrue{detailed}
 }
 
 %-------------------------------------------------------------------------------
@@ -75,7 +75,7 @@
     \setotherlanguage{english} %% объявляет второй язык документа
 }
 
-\iftoggle{short}{
+\iftoggle{compact}{
     \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
 }{
     \usepackage{lastpage}
@@ -132,8 +132,8 @@
 \iftoggle{DEBUG}{
     \iftoggle{langEnglish}{You use english}{}
     \iftoggle{langRussian}{You use russian}{}
-    \iftoggle{short}{You use short}{}
-    \iftoggle{long}{You use long}{}
+    \iftoggle{compact}{You use compact}{}
+    \iftoggle{detailed}{You use detailed}{}
 \jobname
 }
 

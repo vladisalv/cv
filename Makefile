@@ -6,26 +6,26 @@ JOBNAME = --jobname=$(NAME)
 
 .PHONY: all clean view move diff_styles diff_colors
 
-#all: mkdir_output clean eng_short rus_short view
+#all: mkdir_output clean eng_compact rus_compact view
 all: mkdir_output eng rus view
 
-eng: eng_short eng_long
+eng: eng_compact eng_detailed
 
-rus: rus_short rus_long
+rus: rus_compact rus_detailed
 
 XELATEX = xelatex $(OUTPUT) $(JOBNAME)_$@ $(TEX)
 
-eng_short: $(TEX)
+eng_compact: $(TEX)
 	$(XELATEX)
 
-eng_long: $(TEX)
+eng_detailed: $(TEX)
 	$(XELATEX)
 	$(XELATEX)
 
-rus_short: $(TEX)
+rus_compact: $(TEX)
 	$(XELATEX)
 
-rus_long: $(TEX)
+rus_detailed: $(TEX)
 	$(XELATEX)
 	$(XELATEX)
 
