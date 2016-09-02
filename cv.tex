@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper,sans]{moderncv}
 \usepackage[scale=0.75]{geometry}
+\usepackage{fancyhdr}
 \graphicspath{{images/}} % path to images
 
 
@@ -93,11 +94,11 @@
 %\setmonofont{CMU Typewriter Text}               %% задаёт моноширинный шрифт
 
 
-\newcommand\EngRus[2]{
-    \iftoggle{langEnglish}{#1}{ % else
-        \iftoggle{langRussian}{#2}{}
-    }
-}
+\newcommand\EngRus[2]{\iftoggle{langEnglish}{#1}{\iftoggle{langRussian}{#2}{}}}
+
+\newcommand\ifdetailed[1]{\iftoggle{detailed}{#1}{}}
+
+\newcommand\ifcompact[1]{\iftoggle{compact}{#1}{}}
 
 % \usepackage[usenames]{xcolor}  %%% this does not work = thanks to idiots from modernCV package.
 %
@@ -134,24 +135,41 @@
     \iftoggle{langRussian}{You use russian}{}
     \iftoggle{compact}{You use compact}{}
     \iftoggle{detailed}{You use detailed}{}
-\jobname
+    \jobname
 }
 
-\section{\EngRus{Experience}{Опыт работы}}
-\cventry{2015-present}{Ph.D. in Electrical Engineering}{\newline The University of Neverhood, Australia}{\newline \textit{Subject}: Bullshit structure in vacuum}{\newline \textit{Supervisors}: Dr. Shrinivasan, Prof. Syn Hui Vchai}{}
-\cventry{2010-2015}{M.S. in Physics}{Neverhood Institute Of Technology}{\newline \textit{Subject}: Chemical composition of Bullshit}{\newline \textit{Supervisors}: Prof. Syn Hui Vchai}{}
-,
-
-%\section{\EngRus{Education}{Образование}}
-%\cventry{2010--2015}\
-%        {\EngRUs{Specialist in Applied Mathematics and Computer Science}\
-%                {Специалист {Lomonosov Moscow State University}
-%{Moscow}\
-%{\textit{Grade}}{Description}
-%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+%\section{\EngRus{Experience}{Опыт работы}}
 %\cventry{2015-present}{Ph.D. in Electrical Engineering}{\newline The University of Neverhood, Australia}{\newline \textit{Subject}: Bullshit structure in vacuum}{\newline \textit{Supervisors}: Dr. Shrinivasan, Prof. Syn Hui Vchai}{}
 %\cventry{2010-2015}{M.S. in Physics}{Neverhood Institute Of Technology}{\newline \textit{Subject}: Chemical composition of Bullshit}{\newline \textit{Supervisors}: Prof. Syn Hui Vchai}{}
+%,
 %
+\section{\EngRus{Education}{Образование}}
+\cventry{2010 -- 2015}
+        {\EngRus{Master in Applied Mathematics and Computer Science}{Специалист по прикладной математике и информатике}}
+        {\EngRus{Lomonosov Moscow State University}{МГУ им. М.В. Ломоносова}}
+        {\EngRus{Moscow}{Москва}}
+        {\ifdetailed{\EngRus{Faculty of Computational Mathematics and Cybernetics}{Факультет Вычислительной математики и кибернетики}}}
+        {
+          \ifdetailed{
+            \footnotesize{
+            \EngRus{Qualification: specialist in mathematics and system programming}
+                   {Квалификация: математик, системный программист}
+            \newline
+            \EngRus{Department of super computers and quantum informatics}
+                   {Кафедра Суперкомпьютеров и Квантовой Информатики}
+            \newline
+            \EngRus{Specialization: high performance computing}
+                   {Специализация: высокопроизводительные вычисления}
+            \newline
+            \EngRus{Knowledges: Computer architecture and assembler language, Algorithms and Data structures, Parallel data processing, Operating systems, Databases, Mathematical analysis, Discrete mathematics, Numerical methods and others.}
+                   {}
+            \newline
+            \EngRus{Master dissertation "Research and development of parallel algorithm for genome blurred repeats search"}
+                   {Дипломная работа "Разработка и исследование параллельного алгоритма поиска неточных повторов в геноме"}
+            }
+          }
+        }
+
 \section{Research Experience}
 \cventry{April 2009 --\\ February 2010 }{Senior Engineer}{Bullshit Institute of Technology}{\newline Study of Horseshit}{}{}
 
@@ -177,6 +195,8 @@
 \section{Personal information}
 % \cventry{Date of birth}{June 20, 1982}{}{Russian Federation}{}{}
 \cventry{Languages}{English (IELTS, 7 Overall: 6.5L, 8.5R, 6.0W, 6.0S)}{Russian (native), Esperanto (basic)}{}{}{}
+
+\fancyfoot[C]{\scriptsize Last updated: \today\-}
 
 
 \end{document}
