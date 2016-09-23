@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper,sans]{moderncv}
 \usepackage[scale=0.75]{geometry}
 \usepackage{fancyhdr}
+\usepackage{changepage}
 \graphicspath{{images/}} % path to images
 
 
@@ -110,7 +111,7 @@
 
 \firstname{\EngRus{Vladislav}{Владислав}}
 \familyname{\EngRus{Toigildin}{Тойгильдин}}
-\title{Softrware Developer}
+\title{Software Developer}
 \address{\EngRus{Moscow, Russia}{Россия, Москва}}
 \phone[mobile]{+7~916~576~66~39}
 \email{vladisalv@yandex.ru}
@@ -138,11 +139,54 @@
     \jobname
 }
 
-%\section{\EngRus{Experience}{Опыт работы}}
-%\cventry{2015-present}{Ph.D. in Electrical Engineering}{\newline The University of Neverhood, Australia}{\newline \textit{Subject}: Bullshit structure in vacuum}{\newline \textit{Supervisors}: Dr. Shrinivasan, Prof. Syn Hui Vchai}{}
-%\cventry{2010-2015}{M.S. in Physics}{Neverhood Institute Of Technology}{\newline \textit{Subject}: Chemical composition of Bullshit}{\newline \textit{Supervisors}: Prof. Syn Hui Vchai}{}
-%,
-%
+\section{\EngRus{Experience}{Опыт работы}}
+\cventry{06.2015 -- 03.2016}
+        {\EngRus{Software engineer}{Инженер-программист}}
+        {IBM}
+        {\EngRus{Moscow}{Москва}}
+        {}
+        {
+          \ifcompact{
+            \EngRus{Linux on z System SAN component development.}
+                   {Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}
+          }
+          \ifdetailed{
+            \EngRus{Development of Linux driver (zfcp) for IBM z System (s390x) storage hardware.}
+                   {Разработка Linux драйвера для устройств хранения данных аппаратной платформы IBM z System (s390x).}
+            \footnotesize{
+              \vfill
+              \begin{adjustwidth}{0.5cm}{0cm}
+                \EngRus{Worked in international team. Developed code for zfcp driver and internal perf tools. Did code review, performed test, developed and reviewed technical documentation.}
+                       {Работал в интернациональной команде. Занимался разработкой zfcp драйвера и утилиты для измерений производительности (разработка исходного кода, документации, исследование производительности, ревью кода).}
+                \EngRus{Main programming language: C}
+                       {\newline Основной язык разработки: Си}
+              \end{adjustwidth}
+            }
+          }
+        }
+
+\bigskip
+
+\cventry{11.2013 -- 10.2014}
+        {\EngRus{Technician}{Техник}}
+        {\EngRus{Nuclear Safety Institute}{ИБРАЭ РАН}}
+        {\EngRus{Moscow}{Москва}}
+        {}
+        {
+          \EngRus{Development model of hydrodynamic process in liquids using CABARET scheme.}
+                 {Разработка модели течения вязких жидкостей.}
+          \ifdetailed{
+            \footnotesize{
+              \vfill
+              \begin{adjustwidth}{0.5cm}{0cm}
+                \EngRus{Designed and implemented simple GUI with Qt. Configured development enviroment. Trained team basic of *nix and feature of HPC software development. Designed and implemented few features in project code (Fortran).}
+                       {Спроектировал и реализовал простенький пользовательский интерфейс, используя кроссплатформенную библиотеку Qt. Занимался настройкой и поддержкой среды разработки. Обучал команду основам работы в *nix системах и особенности разработки высокопроизводительных приложений.}
+              \end{adjustwidth}
+            }
+          }
+        }
+
+
 \section{\EngRus{Education}{Образование}}
 \cventry{2010 -- 2015}
         {\EngRus{Master in Applied Mathematics and Computer Science}{Специалист по прикладной математике и информатике}}
@@ -152,51 +196,69 @@
         {
           \ifdetailed{
             \footnotesize{
+            \vfill
             \EngRus{Qualification: specialist in mathematics and system programming}
                    {Квалификация: математик, системный программист}
             \newline
-            \EngRus{Department of super computers and quantum informatics}
+            \EngRus{Department of Supercomputers and Quantum Informatics}
                    {Кафедра Суперкомпьютеров и Квантовой Информатики}
             \newline
             \EngRus{Specialization: high performance computing}
                    {Специализация: высокопроизводительные вычисления}
             \newline
-            \EngRus{Knowledges: Computer architecture and assembler language, Algorithms and Data structures, Parallel data processing, Operating systems, Databases, Mathematical analysis, Discrete mathematics, Numerical methods and others.}
-                   {}
-            \newline
+            \EngRus{Knowledges: Computer architecture and assembler language, Algorithms and Data structures, Parallel data processing, Operating systems, Databases, Mathematical analysis, Discrete mathematics, Numerical methods and others.\newline}{}
             \EngRus{Master dissertation "Research and development of parallel algorithm for genome blurred repeats search"}
                    {Дипломная работа "Разработка и исследование параллельного алгоритма поиска неточных повторов в геноме"}
             }
           }
         }
 
-\section{Research Experience}
-\cventry{April 2009 --\\ February 2010 }{Senior Engineer}{Bullshit Institute of Technology}{\newline Study of Horseshit}{}{}
 
-\section{Fellowships and Awards}
-\cvline{2009}{Moscow Conference Award (Diploma of excellence)}
+\section{\EngRus{Technical Skills}{Технические навыки}}
+\cvline{Languages}{C, C++, Bash, Assembler, Perl(basic), Fortran(basic)}
+\cvline{VCS}{Git}
+\cvline{OS}{GNU/Linux, FreeBSD}
+\cvline{HPC}{MPI, Cuda, OpenMP}
+\cvline{Builder}{Make, Autotools}
+\cvline{Others}{Qt(basic), Latex, Gnu plot}
 
-\section{Professional Participation}
-\cvline{Membership}{Society of Bullshit.}
 
-\section{Computer skills}
-\cvitem{OS}{UNIX, Debian GNU/Linux, Windows NT.}
+\section{\EngRus{Additional information}{Дополнительная информация}}
+\cvline{\EngRus{Languages}{Языки}}
+       {\EngRus{English(pre-intermediate), Russian(native)}
+               {Английский(продвинутое владение), Русский(родной)}}
+\cvline{\EngRus{Interests}{Интересы}}{\EngRus{Improv theatre}{Сценическая импровизация}}
 
-\section{Fields of Scientific Interest}
-\cvitem{Image\,processing}{images deconvolution, noise analysis in CCD/CMOS-registered images.}
 
-% Publications from a BibTeX file
-\nocite{*}
-\bibliographystyle{unsrt}
+\fancyfoot[C]{\scriptsize ~~~~~~~~~~~~~~~~~~~~~~~~~~~ You can find recent and more detailed version cv \href{https://github.com/vladisalv/cv}{here}.\newline Last updated: \today\-}
 
-\bibliography{poopkinbiblio}       % 'publications' is the name of a BibTeX file
-\normalsize
-
-\section{Personal information}
-% \cventry{Date of birth}{June 20, 1982}{}{Russian Federation}{}{}
-\cventry{Languages}{English (IELTS, 7 Overall: 6.5L, 8.5R, 6.0W, 6.0S)}{Russian (native), Esperanto (basic)}{}{}{}
-
-\fancyfoot[C]{\scriptsize Last updated: \today\-}
+%\section{Research Experience}
+%\cventry{April 2009 --\\ February 2010 }{Senior Engineer}{Bullshit Institute of Technology}{\newline Study of Horseshit}{}{}
+%
+%\section{Fellowships and Awards}
+%\cvline{2009}{Moscow Conference Award (Diploma of excellence)}
+%
+%\section{Professional Participation}
+%\cvline{Membership}{Society of Bullshit.}
+%
+%\section{Computer skills}
+%\cvitem{OS}{UNIX, Debian GNU/Linux, Windows NT.}
+%
+%\section{Fields of Scientific Interest}
+%\cvitem{Image\,processing}{images deconvolution, noise analysis in CCD/CMOS-registered images.}
+%
+%% Publications
+%\renewcommand\refname{Publications}
+%\begin{thebibliography}{0}
+%\bibitem{specmethod} Toi, jsl, 2016
+%\end{thebibliography}
+%
+%\normalsize
+%
+%\section{Personal information}
+%% \cventry{Date of birth}{June 20, 1982}{}{Russian Federation}{}{}
+%\cventry{Languages}{English (IELTS, 7 Overall: 6.5L, 8.5R, 6.0W, 6.0S)}{Russian (native), Esperanto (basic)}{}{}{}
+%
 
 
 \end{document}
