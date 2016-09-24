@@ -6,6 +6,6 @@
 Download russian [compact](https://github.com/vladisalv/cv/raw/master/cv_TOIGILDIN_VLADISLAV_rus_compact.pdf) or [detailed](https://github.com/vladisalv/cv/raw/master/cv_TOIGILDIN_VLADISLAV_rus_detailed.pdf) version.
 
 Also, visit my
-<a href="https://www.linkedin.com/in/vladisalv"><img style="width:64px;height:64px;" align="middle" src="https://www.iconfinder.com/icons/294671/download/png/64"></a>
+<a href="https://www.linkedin.com/in/vladisalv"><img style="width:64px;height:64px;" align="middle" src="images/linkedin_icon.png"></a>
 
 This Curriculum Vitae created with LaTeX and [moderncv](http://www.ctan.org/pkg/moderncv) package.
