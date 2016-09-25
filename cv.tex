@@ -16,8 +16,8 @@
 
 \documentclass[12pt,a4paper,sans]{moderncv} % http://www.ctan.org/pkg/moderncv
 \usepackage[scale=0.75]{geometry}
-\usepackage{fancyhdr}
-\usepackage{changepage}
+\usepackage{fancyhdr} % for footer
+\usepackage{changepage} % for adjustwidth
 \graphicspath{{images/}} % path to images
 
 %-------------------------------------------------------------------------------
@@ -80,18 +80,15 @@
 % SET OPTION PACKAGE
 %-------------------------------------------------------------------------------
 
-\usepackage{polyglossia}   %% загружает пакет многоязыковой вёрстки
+\usepackage{polyglossia} % load multi language
 \iftoggle{langEnglish}{
-  \setdefaultlanguage{english}  %% устанавливает главный язык документа
+  \setdefaultlanguage{english}
 }{
-  \setdefaultlanguage[spelling=modern]{russian}  %% устанавливает главный язык документа
-  \setotherlanguage{english} %% объявляет второй язык документа
+  \setdefaultlanguage[spelling=modern]{russian}
+  \setotherlanguage{english} % second language
 }
-
-% ????????????????????????????????????
-\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
-\setmainfont[Ligatures={TeX,Historic}]{FreeSans} %% задаёт основной шрифт документа
-\setlength{\hintscolumnwidth}{2.5cm} % if you want to change the width of the column with the dates
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}
+\setmainfont[Ligatures={TeX,Historic}]{FreeSans}
 
 \iftoggle{compact}{
   \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
@@ -110,6 +107,10 @@
 \newcommand\ifdetailed[1]{\iftoggle{detailed}{#1}{}}
 
 \newcommand\ifcompact[1]{\iftoggle{compact}{#1}{}}
+
+\newcommand\iflangEnglish[1]{\iftoggle{langEnglish}{#1}{}}
+
+\newcommand\iflangRussian[1]{\iftoggle{langRussian}{#1}{}}
 
 %-------------------------------------------------------------------------------
 % PERSONAL INFORMATION
@@ -247,10 +248,10 @@
   }
   {\EngRus{Lomonosov Moscow State University}{МГУ им. М.В. Ломоносова}}
   {\EngRus{Moscow}{Москва}}
-  {\ifdetailed{
+  {\ifdetailed{%
      \EngRus{Faculty of Computational Mathematics and Cybernetics}
             {Факультет Вычислительной Математики и Кибернетики}%
-    }
+    }%
   }
   {\ifdetailed{
      \footnotesize{
@@ -316,7 +317,7 @@
   {Qt(basic), Latex, Gnu plot}
 
 % ----------  Publications -----------------------------------------------------
-\renewcommand\refname{Publications}
+\renewcommand\refname{\EngRus{Publications}{Публикации}}
 \begin{thebibliography}{0}
 
 \bibitem{ISP}
@@ -325,7 +326,7 @@
           Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
           \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
                {\textcolor{blue}{\underline{Abstract}}}}
-         {\ifcompact{\small} {\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
+         {\ifcompact{\footnotesize} {\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
           Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
           Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
           \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
