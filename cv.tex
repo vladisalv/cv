@@ -1,15 +1,30 @@
-\documentclass[12pt,a4paper,sans]{moderncv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is Curriculum Vitae (resume) of Vladislav Toigildin.
+%
+% LICENSE: This source file is subject to MIT license.
+%
+% IMPORTANT: THIS FILE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% I used sans font and classic blue theme. Also, i liked tatatatatata
+%
+% For compile 4 different documents run `make` without any arguments.
+%
+% Project address: https://github.com/vladisalv/cv
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,sans]{moderncv} % http://www.ctan.org/pkg/moderncv
 \usepackage[scale=0.75]{geometry}
 \usepackage{fancyhdr}
 \usepackage{changepage}
 \graphicspath{{images/}} % path to images
 
-
 %-------------------------------------------------------------------------------
-%     create and set new toggle
+% parse version of cv from \jobname
 %-------------------------------------------------------------------------------
 
-%-----        create and set new toggle    -------------------------------------
+% create and set new toggle
 \newtoggle{langEnglish}
 \newtoggle{langRussian}
 
@@ -22,88 +37,79 @@
 \toggletrue{compact}
 \togglefalse{detailed}
 
-%-------------------------------------------------------------------------------
-% parse version of cv from \jobname
-%-------------------------------------------------------------------------------
-
 \newcommand\ifjobname[2]{
-    \expandafter\ifstrequal\expandafter{\jobname}{cv_TOIGILDIN_VLADISLAV#1}
-    {#2}
-    {}
+  \expandafter\ifstrequal\expandafter{\jobname}{cv_TOIGILDIN_VLADISLAV#1}
+  {#2}
+  {}
 }
 
 \moderncvtheme[blue]{classic} % theme by default
-\ifjobname{_diff}{
-    \input{style.tex}
+\ifjobname{_diff}{            % take theme from file style.tex
+  \input{style.tex}
 }
 
 \ifjobname{_eng_compact}{
-    \toggletrue{langEnglish}
-    \togglefalse{langRussian}
-    \toggletrue{compact}
-    \togglefalse{detailed}
+  \toggletrue{langEnglish}
+  \togglefalse{langRussian}
+  \toggletrue{compact}
+  \togglefalse{detailed}
 }
 
 \ifjobname{_rus_compact}{
-    \togglefalse{langEnglish}
-    \toggletrue{langRussian}
-    \toggletrue{compact}
-    \togglefalse{detailed}
+  \togglefalse{langEnglish}
+  \toggletrue{langRussian}
+  \toggletrue{compact}
+  \togglefalse{detailed}
 }
 
 \ifjobname{_eng_detailed}{
-    \toggletrue{langEnglish}
-    \togglefalse{langRussian}
-    \togglefalse{compact}
-    \toggletrue{detailed}
+  \toggletrue{langEnglish}
+  \togglefalse{langRussian}
+  \togglefalse{compact}
+  \toggletrue{detailed}
 }
 
 \ifjobname{_rus_detailed}{
-    \togglefalse{langEnglish}
-    \toggletrue{langRussian}
-    \togglefalse{compact}
-    \toggletrue{detailed}
+  \togglefalse{langEnglish}
+  \toggletrue{langRussian}
+  \togglefalse{compact}
+  \toggletrue{detailed}
 }
 
 %-------------------------------------------------------------------------------
-%
+% SET OPTION PACKAGE
 %-------------------------------------------------------------------------------
 
 \usepackage{polyglossia}   %% загружает пакет многоязыковой вёрстки
 \iftoggle{langEnglish}{
-    \setdefaultlanguage{english}  %% устанавливает главный язык документа
+  \setdefaultlanguage{english}  %% устанавливает главный язык документа
 }{
-    \setdefaultlanguage[spelling=modern]{russian}  %% устанавливает главный язык документа
-    \setotherlanguage{english} %% объявляет второй язык документа
+  \setdefaultlanguage[spelling=modern]{russian}  %% устанавливает главный язык документа
+  \setotherlanguage{english} %% объявляет второй язык документа
 }
 
-\iftoggle{compact}{
-    \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
-}{
-    \usepackage{lastpage}
-    \pagestyle{fancy}
-    \rfoot{\thepage/\pageref{LastPage}}
-}
-
-%-------------------------------------------------------------------------------
-%
-%-------------------------------------------------------------------------------
-
+% ????????????????????????????????????
 \defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
 \setmainfont[Ligatures={TeX,Historic}]{FreeSans} %% задаёт основной шрифт документа
-%\setsansfont{CMU Sans Serif}                    %% задаёт шрифт без засечек
-%\setmonofont{CMU Typewriter Text}               %% задаёт моноширинный шрифт
+\setlength{\hintscolumnwidth}{2.5cm} % if you want to change the width of the column with the dates
 
+\iftoggle{compact}{
+  \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+}{
+  \usepackage{lastpage}
+  \pagestyle{fancy}
+  \rfoot{\thepage/\pageref{LastPage}}
+}
+
+%-------------------------------------------------------------------------------
+% NEW COMMAND
+%-------------------------------------------------------------------------------
 
 \newcommand\EngRus[2]{\iftoggle{langEnglish}{#1}{\iftoggle{langRussian}{#2}{}}}
 
 \newcommand\ifdetailed[1]{\iftoggle{detailed}{#1}{}}
 
 \newcommand\ifcompact[1]{\iftoggle{compact}{#1}{}}
-
-% \usepackage[usenames]{xcolor}  %%% this does not work = thanks to idiots from modernCV package.
-%
-\setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
 
 %-------------------------------------------------------------------------------
 % PERSONAL INFORMATION
@@ -116,149 +122,287 @@
 \phone[mobile]{+7~916~576~66~39}
 \email{vladisalv@yandex.ru}
 \extrainfo{%
-    \\%
-    \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
-    \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
+  \\%
+  \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
+  \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
 }
 \photo[64pt][0.4pt]{photo.jpg}
-\renewcommand\refname{Selected publications}
 
 %-------------------------------------------------------------------------------
+% BEGIN DOCUMENT
+%-------------------------------------------------------------------------------
+
 \begin{document}
+
 \makecvtitle
 
+% DEBUG OUTPUT
 \newtoggle{DEBUG}
 %\toggletrue{DEBUG}
 \togglefalse{DEBUG}
 
 \iftoggle{DEBUG}{
-    \iftoggle{langEnglish}{You use english}{}
-    \iftoggle{langRussian}{You use russian}{}
-    \iftoggle{compact}{You use compact}{}
-    \iftoggle{detailed}{You use detailed}{}
-    \jobname
+  \iftoggle{langEnglish}{You use english}{}
+  \iftoggle{langRussian}{You use russian}{}
+  \iftoggle{compact}{You use compact}{}
+  \iftoggle{detailed}{You use detailed}{}
+  \jobname
 }
 
+%\ifdetailed{
+%  \section{Objective}
+%  \begin{adjustwidth}{2.5cm}{0cm}
+%    \begin{center}
+%% @PLAN: here my common profile and specialization. something like this:
+%      A position in the field of computers with special interests in business
+%      applications programming, information processing, and management systems.
+%% or this:
+% Experience in a variety of technologies, operating systems and languages.
+% More than 30 years in software development and system administration.
+%    \end{center}
+%  \end{adjustwidth}
+%}
+
+%-------------------------------------------------------------------------------
+% EXPERIENCE
+%-------------------------------------------------------------------------------
+
 \section{\EngRus{Experience}{Опыт работы}}
-\cventry{06.2015 -- 03.2016}
-        {\EngRus{Software engineer}{Инженер-программист}}
-        {IBM}
-        {\EngRus{Moscow}{Москва}}
-        {}
-        {
-          \ifcompact{
-            \EngRus{Linux on z System SAN component development.}
-                   {Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}
-          }
-          \ifdetailed{
-            \EngRus{Development of Linux driver (zfcp) for IBM z System (s390x) storage hardware.}
-                   {Разработка Linux драйвера для устройств хранения данных аппаратной платформы IBM z System (s390x).}
-            \footnotesize{
-              \vfill
-              \begin{adjustwidth}{0.5cm}{0cm}
-                \EngRus{Worked in international team. Developed code for zfcp driver and internal perf tools. Did code review, performed test, developed and reviewed technical documentation.}
-                       {Работал в интернациональной команде. Занимался разработкой zfcp драйвера и утилиты для измерений производительности (разработка исходного кода, документации, исследование производительности, ревью кода).}
-                \EngRus{Main programming language: C}
-                       {\newline Основной язык разработки: Си}
-              \end{adjustwidth}
-            }
-          }
-        }
 
-\bigskip
+\cventry
+  {06.2015 -- 03.2016}
+  {\EngRus{Software engineer}{Инженер-программист}}
+  {IBM}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+    \ifcompact{
+      \EngRus{{\itshape Linux on z System SAN component development.}}
+             {{\itshape Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}}
+    }
+    \ifdetailed{
+      \EngRus{{\itshape Development of Linux driver (zfcp) for IBM z System (s390x) storage hardware.}}
+             {{\itshape Разработка Linux драйвера для устройств хранения данных
+              аппаратной платформы IBM z System (s390x).}}
+      \footnotesize{
+        \vfill
+        \begin{adjustwidth}{0.5cm}{0cm}
+          \EngRus{Worked in international team. Developed code for zfcp driver and internal perf tools.
+                  Did code review, performed test, developed and reviewed technical documentation.}
+                 {Работал в интернациональной команде. Занимался разработкой
+                  zfcp драйвера и утилиты для измерений производительности (разработка исходного кода,
+                  документации, исследование производительности, ревью кода).}
+          \EngRus{Main programming language: C}
+                 {\newline Основной язык разработки: Си}
+        \end{adjustwidth}
+      }
+    }
+  }
 
-\cventry{11.2013 -- 10.2014}
-        {\EngRus{Technician}{Техник}}
-        {\EngRus{Nuclear Safety Institute}{ИБРАЭ РАН}}
-        {\EngRus{Moscow}{Москва}}
-        {}
-        {
-          \EngRus{Development model of hydrodynamic process in liquids using CABARET scheme.}
-                 {Разработка модели течения вязких жидкостей.}
-          \ifdetailed{
-            \footnotesize{
-              \vfill
-              \begin{adjustwidth}{0.5cm}{0cm}
-                \EngRus{Designed and implemented simple GUI with Qt. Configured development enviroment. Trained team basic of *nix and feature of HPC software development. Designed and implemented few features in project code (Fortran).}
-                       {Спроектировал и реализовал простенький пользовательский интерфейс, используя кроссплатформенную библиотеку Qt. Занимался настройкой и поддержкой среды разработки. Обучал команду основам работы в *nix системах и особенности разработки высокопроизводительных приложений.}
-              \end{adjustwidth}
-            }
-          }
-        }
+\ifdetailed{
+  \bigskip
+}
 
+\cventry
+  {11.2013 -- 10.2014}
+  {\EngRus{Technician}{Техник}}
+  {\EngRus{Nuclear Safety Institute}{ИБРАЭ РАН}}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+    \EngRus{{\itshape Development model of hydrodynamic process in liquids using CABARET scheme.}}
+           {{\itshape Разработка модели течения вязких жидкостей использующей схему КАБАРЕ.}}
+    \ifdetailed{
+      \footnotesize{
+        \vfill
+        \begin{adjustwidth}{0.5cm}{0cm}
+          \EngRus{Designed and implemented simple GUI with Qt. Configured development enviroment.
+                  Trained team basic of *nix and feature of HPC software development.
+                  Designed and implemented few features in project code (Fortran).}
+                 {Спроектировал и реализовал простенький пользовательский интерфейс,
+                  используя кроссплатформенную библиотеку Qt.
+                  Занимался настройкой и поддержкой среды разработки.
+                  Обучал команду основам работы в *nix системах и особенностям
+                  разработки высокопроизводительных приложений.}
+        \end{adjustwidth}
+      }
+    }
+  }
+
+\ifdetailed{
+  \bigskip
+  \bigskip
+}
+
+%-------------------------------------------------------------------------------
+% EDUCATION
+%-------------------------------------------------------------------------------
 
 \section{\EngRus{Education}{Образование}}
-\cventry{2010 -- 2015}
-        {\EngRus{Master in Applied Mathematics and Computer Science}{Специалист по прикладной математике и информатике}}
-        {\EngRus{Lomonosov Moscow State University}{МГУ им. М.В. Ломоносова}}
-        {\EngRus{Moscow}{Москва}}
-        {\ifdetailed{\EngRus{Faculty of Computational Mathematics and Cybernetics}{Факультет Вычислительной математики и кибернетики}}}
-        {
-          \ifdetailed{
-            \footnotesize{
-            \vfill
-            \EngRus{Qualification: specialist in mathematics and system programming}
-                   {Квалификация: математик, системный программист}
-            \newline
-            \EngRus{Department of Supercomputers and Quantum Informatics}
-                   {Кафедра Суперкомпьютеров и Квантовой Информатики}
-            \newline
-            \EngRus{Specialization: high performance computing}
-                   {Специализация: высокопроизводительные вычисления}
-            \newline
-            \EngRus{Knowledges: Computer architecture and assembler language, Algorithms and Data structures, Parallel data processing, Operating systems, Databases, Mathematical analysis, Discrete mathematics, Numerical methods and others.\newline}{}
-            \EngRus{Master dissertation "Research and development of parallel algorithm for genome blurred repeats search"}
-                   {Дипломная работа "Разработка и исследование параллельного алгоритма поиска неточных повторов в геноме"}
-            }
-          }
-        }
 
+\cventry
+  {2010 -- 2015}
+  {\EngRus{Master in Applied Mathematics and Computer Science}
+          {Специалист по прикладной математике и информатике}%
+  }
+  {\EngRus{Lomonosov Moscow State University}{МГУ им. М.В. Ломоносова}}
+  {\EngRus{Moscow}{Москва}}
+  {\ifdetailed{
+     \EngRus{Faculty of Computational Mathematics and Cybernetics}
+            {Факультет Вычислительной Математики и Кибернетики}%
+    }
+  }
+  {\ifdetailed{
+     \footnotesize{
+       \vfill
+       \begin{adjustwidth}{0.5cm}{0cm}
+         \EngRus{Qualification: specialist in mathematics and system programming}
+                {Квалификация: математик, системный программист}
+         \newline
+         \EngRus{Department of Supercomputers and Quantum Informatics}
+                {Кафедра Суперкомпьютеров и Квантовой Информатики}
+         \newline
+         \EngRus{Specialization: high performance computing}
+                {Специализация: высокопроизводительные вычисления}
+         \newline
+         \EngRus{Knowledges: Computer architecture and assembler language,
+                 Algorithms and Data structures, Parallel data processing,
+                 Operating systems, Databases, Mathematical analysis,
+                 Discrete mathematics, Numerical methods and others.}
+                {Прослушанные курсы: Архитектура ЭВМ и язык ассемблера,
+                 Алгоритмы и алгоритмические языки,
+                 Суперкомпьютеры и параллельная обработка данных,
+                 Операционные системы, Базы данных, Математический анализ,
+                 Дискретная математика, Численные методы и другие.}
+         \newline
+         \EngRus{Master dissertation "Research and development of parallel
+                 algorithm for genome blurred repeats search"}
+                {Дипломная работа "Разработка и исследование параллельного
+                 алгоритма поиска неточных повторов в геноме"}
+       \end{adjustwidth}
+     }
+   }
+  }
 
-\section{\EngRus{Technical Skills}{Технические навыки}}
-\cvline{Languages}{C, C++, Bash, Assembler, Perl(basic), Fortran(basic)}
-\cvline{VCS}{Git}
-\cvline{OS}{GNU/Linux, FreeBSD}
-\cvline{HPC}{MPI, Cuda, OpenMP}
-\cvline{Builder}{Make, Autotools}
-\cvline{Others}{Qt(basic), Latex, Gnu plot}
+\ifdetailed{
+  \newpage
+}
 
+%-------------------------------------------------------------------------------
+% TECHNICAL SKILLS, PUBLICATIONS, AWARDS, OPEN SOURCE PROJECT, ADD INFO
+%-------------------------------------------------------------------------------
+
+\section{\EngRus{Technical skills}{Технические навыки}}
+
+\cvline
+  {Languages}
+  {C, C++, Bash, Assembler, Perl(basic), Fortran(basic)}
+\cvline
+  {VCS}
+  {Git}
+\cvline
+  {OS}
+  {GNU/Linux, FreeBSD}
+\cvline
+  {HPC}
+  {MPI, Cuda, OpenMP}
+\ifdetailed{
+  \cvline
+    {Builder}
+    {Make, Autotools}
+}
+\cvline
+  {Others}
+  {Qt(basic), Latex, Gnu plot}
+
+% ----------  Publications -----------------------------------------------------
+\renewcommand\refname{Publications}
+\begin{thebibliography}{0}
+
+\bibitem{ISP}
+  \EngRus{{\itshape A.N. Pankratov, R.K. Tetuev, M.I. Pyatkov, V.P. Toigildin, N.N. Popova}
+          Spectral analytical method of recognition of inexact repeats in character sequences.~--~
+          Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
+          \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
+               {\textcolor{blue}{\underline{Abstract}}}}
+         {\ifcompact{\small} {\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
+          Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
+          Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
+          \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
+               {\textcolor{blue}{\underline{Стр. 335-344}}}}
+
+\ifdetailed{
+  \bibitem{cuda}
+    \EngRus{{\itshape V.P. Toigildin} Research and development of parallel algorithm
+            for genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
+            \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
+                 {\textcolor{blue}{\underline{p.12}}}}
+           {{\itshape Тойгильдин В.П.} Разработка и исследование параллельного алгоритма
+            поиска неточных повторов в геноме. -- CUDA Альманах, Февраль 2015.~--~
+            \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
+                 {\textcolor{blue}{\underline{Стр. 12}}}}
+}
+
+\end{thebibliography}
+% ----------  End Publications -------------------------------------------------
+
+\ifdetailed{
+  \section{\EngRus{Awards}{Награды}}
+  \cventry
+    {2014}
+    {\EngRus{Fellowship of CUDA Center of Excellence MSU}
+            {Стипендия от CUDA Center of Excellence МГУ}%
+    }
+    {\EngRus{Moscow}{Москва}}
+    {}
+    {}
+    {\EngRus{\href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Won a fellowships}}}
+             for a significant acceleration of computing for my research using GPU.}
+            {\href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Выиграл стипендию}}}
+            за существенное ускорение вычислений для своей исследовательской работы
+            за счет применения графических процессоров.}%
+    }
+
+  \section{\EngRus{Open Source Project}{Open Source Проекты}}
+  \cvline
+    {\href{https://github.com/vladisalv/mpisbars}{\textcolor{blue}{\underline{mpiSBARS}}}}
+    {\EngRus{Parallel program for recognition of extended inexact repeats in genome.
+             I used MPI+CUDA model for scalability on heterogeneous computer system.}
+            {Параллельная программа для поиска неточных протяженных повторов
+             в биологических последовательностях. Для лучшей масштабируемости
+             на современных гетерогенных системах используется модель MPI+CUDA.}%
+    }
+}
 
 \section{\EngRus{Additional information}{Дополнительная информация}}
-\cvline{\EngRus{Languages}{Языки}}
-       {\EngRus{English(pre-intermediate), Russian(native)}
-               {Английский(продвинутое владение), Русский(родной)}}
-\cvline{\EngRus{Interests}{Интересы}}{\EngRus{Improv theatre}{Сценическая импровизация}}
+
+\cvline
+  {\EngRus{Languages}{Языки}}
+  {\EngRus{English(pre-intermediate), Russian(native)}
+          {Английский(продвинутое владение), Русский(родной)}}
+\cvline
+  {\EngRus{Interests}{Интересы}}
+  {\EngRus{Improv theatre}{Сценическая импровизация}}
 
 
-\fancyfoot[C]{\scriptsize ~~~~~~~~~~~~~~~~~~~~~~~~~~~ You can find recent and more detailed version cv \href{https://github.com/vladisalv/cv}{here}.\newline Last updated: \today\-}
+% footer -----------------------------------------------------------------------
+\fancyfoot[C]{\scriptsize ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+              You can find recent and more detailed version cv
+              \href{https://github.com/vladisalv/cv}{\underline{here}}.\newline
+              Last updated: \today\-}
 
-%\section{Research Experience}
-%\cventry{April 2009 --\\ February 2010 }{Senior Engineer}{Bullshit Institute of Technology}{\newline Study of Horseshit}{}{}
-%
-%\section{Fellowships and Awards}
-%\cvline{2009}{Moscow Conference Award (Diploma of excellence)}
-%
-%\section{Professional Participation}
-%\cvline{Membership}{Society of Bullshit.}
-%
-%\section{Computer skills}
-%\cvitem{OS}{UNIX, Debian GNU/Linux, Windows NT.}
-%
-%\section{Fields of Scientific Interest}
-%\cvitem{Image\,processing}{images deconvolution, noise analysis in CCD/CMOS-registered images.}
-%
-%% Publications
-%\renewcommand\refname{Publications}
-%\begin{thebibliography}{0}
-%\bibitem{specmethod} Toi, jsl, 2016
-%\end{thebibliography}
-%
-%\normalsize
-%
-%\section{Personal information}
-%% \cventry{Date of birth}{June 20, 1982}{}{Russian Federation}{}{}
-%\cventry{Languages}{English (IELTS, 7 Overall: 6.5L, 8.5R, 6.0W, 6.0S)}{Russian (native), Esperanto (basic)}{}{}{}
-%
-
+% @PLAN: remove cuda publication when will new pub.
+% @PLAN: insert (Part Time/Частичная занятость) к ИБРАЭ
+% @PLAN: English(IELTS 7.0 Overall: 6.0L, 7.0R, 8.0W, 7.0S) after IELTS
+% @PLAN: add someday Fields of Scientific Interest
+% @PLAN: rename Additional information to Personal Information???
+% @PLAN: \renewcommand\refname{Selected publications} (Избранные публикации)
+% when i will have more 4 paper
+% @PLAN: someday insert timeline
+% @PLAN: add someday section Communication Skills/Public Activity
+% @PLAN: after pass courses on Coursera i can paste in section Education:
+% \subsection{University}
+% \subsection{MOOOCs (Coursera)} (https://en.wikipedia.org/wiki/Massive_open_online_course)
+% @PLAN: version of CV 20-ty seconds (Alice in Wonderland)
 
 \end{document}

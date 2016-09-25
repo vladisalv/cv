@@ -6,8 +6,8 @@ JOBNAME = --jobname=$(NAME)
 
 .PHONY: all clean view move diff_styles diff_colors
 
-all: mkdir_output clean compact view
-#all: mkdir_output eng rus view
+#all: mkdir_output clean detailed view
+all: mkdir_output eng rus view
 
 eng: eng_compact eng_detailed
 
