@@ -1,7 +1,7 @@
 ## My Curriculum Vitae
 
 [Open CV online](https://github.com/vladisalv/cv/blob/master/cv_TOIGILDIN_VLADISLAV_eng_compact.pdf)
-or [Download PDF file](cv_TOIGILDIN_VLADISLAV_eng_compact.pdf).
+or [Download PDF file](cv_TOIGILDIN_VLADISLAV_eng_compact.pdf?raw=true).
 For more information [download detailed version](cv_TOIGILDIN_VLADISLAV_eng_detailed.pdf).
 
 Download russian [compact](cv_TOIGILDIN_VLADISLAV_rus_compact.pdf) or
