@@ -6,9 +6,12 @@
 %
 % IMPORTANT: THIS FILE NEEDS TO BE COMPILED WITH XeLaTeX
 %
-% I used sans font and classic blue theme. Also, i liked tatatatatata
+% I used Constantia font and classic blue theme.
+% Also, i liked Garamond, Georgia and Helvetica fonts.
 %
 % For compile 4 different documents run `make` without any arguments.
+%
+% Check fonts embedded to pdf before publish your cv (use pdffonts).
 %
 % Project address: https://github.com/vladisalv/cv
 %
@@ -19,12 +22,12 @@
 \usepackage{fancyhdr} % for footer
 \usepackage{changepage} % for adjustwidth
 \graphicspath{{images/}} % path to images
+\hyphenpenalty=10000 % ban of hyphenation
 
 %-------------------------------------------------------------------------------
-% parse version of cv from \jobname
+% CREATE AND SET NEW TOGGLE
 %-------------------------------------------------------------------------------
 
-% create and set new toggle
 \newtoggle{langEnglish}
 \newtoggle{langRussian}
 
@@ -37,13 +40,32 @@
 \toggletrue{compact}
 \togglefalse{detailed}
 
+%-------------------------------------------------------------------------------
+% NEW COMMAND
+%-------------------------------------------------------------------------------
+
 \newcommand\ifjobname[2]{
   \expandafter\ifstrequal\expandafter{\jobname}{cv_TOIGILDIN_VLADISLAV#1}
   {#2}
   {}
 }
 
+\newcommand\EngRus[2]{\iftoggle{langEnglish}{#1}{\iftoggle{langRussian}{#2}{}}}
+
+\newcommand\ifdetailed[1]{\iftoggle{detailed}{#1}{}}
+
+\newcommand\ifcompact[1]{\iftoggle{compact}{#1}{}}
+
+\newcommand\iflangEnglish[1]{\iftoggle{langEnglish}{#1}{}}
+
+\newcommand\iflangRussian[1]{\iftoggle{langRussian}{#1}{}}
+
+%-------------------------------------------------------------------------------
+% PARSE VERSION OF CV FROM \jobname
+%-------------------------------------------------------------------------------
+
 \moderncvtheme[blue]{classic} % theme by default
+\def\myfont{Constantia}       % font by default
 \ifjobname{_diff}{            % take theme from file style.tex
   \input{style.tex}
 }
@@ -81,36 +103,25 @@
 %-------------------------------------------------------------------------------
 
 \usepackage{polyglossia} % load multi language
-\iftoggle{langEnglish}{
+\iflangEnglish{
   \setdefaultlanguage{english}
-}{
+  \setmainfont{\myfont}
+}
+\iflangRussian{
   \setdefaultlanguage[spelling=modern]{russian}
   \setotherlanguage{english} % second language
+  \defaultfontfeatures{Ligatures={TeX},Renderer=Basic}
+  \newfontfamily\russianfont[Script=Cyrillic]{\myfont}
 }
-\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}
-\setmainfont[Ligatures={TeX,Historic}]{FreeSans}
 
-\iftoggle{compact}{
-  \nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
-}{
+\ifcompact{
+  \nopagenumbers{}
+}
+\ifdetailed{
   \usepackage{lastpage}
   \pagestyle{fancy}
   \rfoot{\thepage/\pageref{LastPage}}
 }
-
-%-------------------------------------------------------------------------------
-% NEW COMMAND
-%-------------------------------------------------------------------------------
-
-\newcommand\EngRus[2]{\iftoggle{langEnglish}{#1}{\iftoggle{langRussian}{#2}{}}}
-
-\newcommand\ifdetailed[1]{\iftoggle{detailed}{#1}{}}
-
-\newcommand\ifcompact[1]{\iftoggle{compact}{#1}{}}
-
-\newcommand\iflangEnglish[1]{\iftoggle{langEnglish}{#1}{}}
-
-\newcommand\iflangRussian[1]{\iftoggle{langRussian}{#1}{}}
 
 %-------------------------------------------------------------------------------
 % PERSONAL INFORMATION
@@ -127,7 +138,7 @@
   \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
   \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
 }
-\photo[64pt][0.4pt]{photo.jpg}
+\photo[64pt][0.4pt]{photo91kb.jpg}
 
 %-------------------------------------------------------------------------------
 % BEGIN DOCUMENT
@@ -143,13 +154,13 @@
 \togglefalse{DEBUG}
 
 \iftoggle{DEBUG}{
-  \iftoggle{langEnglish}{You use english}{}
-  \iftoggle{langRussian}{You use russian}{}
+  \iftoggle{langEnglish}{You use English}{}
+  \iftoggle{langRussian}{You use Russian}{}
   \iftoggle{compact}{You use compact}{}
   \iftoggle{detailed}{You use detailed}{}
   \jobname
 }
-
+%
 %\ifdetailed{
 %  \section{Objective}
 %  \begin{adjustwidth}{2.5cm}{0cm}
@@ -163,7 +174,7 @@
 %    \end{center}
 %  \end{adjustwidth}
 %}
-
+%
 %-------------------------------------------------------------------------------
 % EXPERIENCE
 %-------------------------------------------------------------------------------
@@ -178,31 +189,28 @@
   {}
   {
     \ifcompact{
-      \EngRus{{\itshape Linux on z System SAN component development.}}
+      \EngRus{{\itshape Linux on IBM z System SAN component development.}}
              {{\itshape Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}}
     }
     \ifdetailed{
-      \EngRus{{\itshape Development of Linux driver (zfcp) for IBM z System (s390x) storage hardware.}}
-             {{\itshape Разработка Linux драйвера для устройств хранения данных
+      \EngRus{{Development of Linux driver (zfcp) for IBM z System (s390x) storage hardware.}}
+             {{Разработка Linux драйвера для устройств хранения данных
               аппаратной платформы IBM z System (s390x).}}
-      \footnotesize{
-        \vfill
+          \vfill
         \begin{adjustwidth}{0.5cm}{0cm}
-          \EngRus{Worked in international team. Developed code for zfcp driver and internal perf tools.
-                  Did code review, performed test, developed and reviewed technical documentation.}
-                 {Работал в интернациональной команде. Занимался разработкой
-                  zfcp драйвера и утилиты для измерений производительности (разработка исходного кода,
-                  документации, исследование производительности, ревью кода).}
-          \EngRus{Main programming language: C}
-                 {\newline Основной язык разработки: Си}
+          \begin{itemize}
+            \item \EngRus{Code development of device Linux driver.}
+                         {Разработка драйвера устройств ядра ОС Linux.}
+            \item \EngRus{Development of internal perf tool (C++ and Perl).}
+                         {Разработка утилиты анализа производительности (C++ и Perl).}
+            \item \EngRus{Work in international team. Regular code review.}
+                         {Работа в интернациональной команде. Постоянный код ревью.}
+            \item \EngRus{Design, creation and management of test environment.}
+                         {Проектирование, создание и настройка системы тестирования.}
+          \end{itemize}
         \end{adjustwidth}
-      }
     }
   }
-
-\ifdetailed{
-  \bigskip
-}
 
 \cventry
   {11.2013 -- 10.2014}
@@ -211,29 +219,24 @@
   {\EngRus{Moscow}{Москва}}
   {}
   {
-    \EngRus{{\itshape Development model of hydrodynamic process in liquids using CABARET scheme.}}
-           {{\itshape Разработка модели течения вязких жидкостей использующей схему КАБАРЕ.}}
+    \EngRus{{\ifcompact{\itshape}Development of model of hydrodynamic process in liquids using CABARET scheme.}}
+           {{\ifcompact{\itshape}Разработка модели течения вязких жидкостей использующей схему КАБАРЕ.}}
     \ifdetailed{
-      \footnotesize{
-        \vfill
-        \begin{adjustwidth}{0.5cm}{0cm}
-          \EngRus{Designed and implemented simple GUI with Qt. Configured development enviroment.
-                  Trained team basic of *nix and feature of HPC software development.
-                  Designed and implemented few features in project code (Fortran).}
-                 {Спроектировал и реализовал простенький пользовательский интерфейс,
-                  используя кроссплатформенную библиотеку Qt.
-                  Занимался настройкой и поддержкой среды разработки.
-                  Обучал команду основам работы в *nix системах и особенностям
-                  разработки высокопроизводительных приложений.}
-        \end{adjustwidth}
-      }
+      \vfill
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Design and implementation of GUI (Qt).}
+                       {Проектирование и реализация графического интерфейса (Qt).}
+          \item \EngRus{Configure development environment.}
+                       {Конфигурирование и поддержка среды разработки.}
+          \item \EngRus{Implementation of new features in main project code (Fortran).}
+                       {Реализация и добавление новой функциональности в основной код проекта (Fortran).}
+          \item \EngRus{Training team basic of *nix and features of HPC software development.}
+                       {Обучение команды основам работы в *nix системах}
+        \end{itemize}
+      \end{adjustwidth}
     }
   }
-
-\ifdetailed{
-  \bigskip
-  \bigskip
-}
 
 %-------------------------------------------------------------------------------
 % EDUCATION
@@ -243,10 +246,10 @@
 
 \cventry
   {2010 -- 2015}
-  {\EngRus{Master in Applied Mathematics and Computer Science}
+  {\EngRus{MSc (equivalent) in Applied Mathematics and Computer Science}
           {Специалист по прикладной математике и информатике}%
   }
-  {\EngRus{Lomonosov Moscow State University}{МГУ им. М.В. Ломоносова}}
+  {\EngRus{Lomonosov Moscow State University}{\newline МГУ им. М.В. Ломоносова}}
   {\EngRus{Moscow}{Москва}}
   {\ifdetailed{%
      \EngRus{Faculty of Computational Mathematics and Cybernetics}
@@ -254,19 +257,20 @@
     }%
   }
   {\ifdetailed{
-     \footnotesize{
-       \vfill
-       \begin{adjustwidth}{0.5cm}{0cm}
-         \EngRus{Qualification: specialist in mathematics and system programming}
+     \vfill
+     \begin{adjustwidth}{0.5cm}{0cm}
+       \begin{itemize}
+         \item \EngRus{Qualification: specialist in mathematics and system programming}
                 {Квалификация: математик, системный программист}
-         \newline
-         \EngRus{Department of Supercomputers and Quantum Informatics}
+         \item \EngRus{Department of Supercomputers and Quantum Informatics}
                 {Кафедра Суперкомпьютеров и Квантовой Информатики}
-         \newline
-         \EngRus{Specialization: high performance computing}
+         \item \EngRus{Specialization: high performance computing}
                 {Специализация: высокопроизводительные вычисления}
-         \newline
-         \EngRus{Knowledges: Computer architecture and assembler language,
+         \item \EngRus{Master dissertation "Research and development of parallel
+                 algorithm for genome blurred repeats search"}
+                {Дипломная работа "Разработка и исследование параллельного
+                 алгоритма поиска неточных повторов в геноме"}
+         \item \EngRus{Knowledges: Computer architecture and assembler language,
                  Algorithms and Data structures, Parallel data processing,
                  Operating systems, Databases, Mathematical analysis,
                  Discrete mathematics, Numerical methods and others.}
@@ -275,13 +279,8 @@
                  Суперкомпьютеры и параллельная обработка данных,
                  Операционные системы, Базы данных, Математический анализ,
                  Дискретная математика, Численные методы и другие.}
-         \newline
-         \EngRus{Master dissertation "Research and development of parallel
-                 algorithm for genome blurred repeats search"}
-                {Дипломная работа "Разработка и исследование параллельного
-                 алгоритма поиска неточных повторов в геноме"}
-       \end{adjustwidth}
-     }
+       \end{itemize}
+     \end{adjustwidth}
    }
   }
 
@@ -290,7 +289,7 @@
 }
 
 %-------------------------------------------------------------------------------
-% TECHNICAL SKILLS, PUBLICATIONS, AWARDS, OPEN SOURCE PROJECT, ADD INFO
+% TECHNICAL SKILLS
 %-------------------------------------------------------------------------------
 
 \section{\EngRus{Technical skills}{Технические навыки}}
@@ -314,7 +313,11 @@
 }
 \cvline
   {Others}
-  {Qt(basic), Latex, Gnu plot}
+  {Qt(basic), \LaTeX, Gnu plot}
+
+%-------------------------------------------------------------------------------
+% PUBLICATIONS, AWARDS, OPEN SOURCE PROJECT, ADDITIONAL INFO AND FOOTER
+%-------------------------------------------------------------------------------
 
 % ----------  Publications -----------------------------------------------------
 \renewcommand\refname{\EngRus{Publications}{Публикации}}
@@ -326,7 +329,7 @@
           Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
           \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
                {\textcolor{blue}{\underline{Abstract}}}}
-         {\ifcompact{\footnotesize} {\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
+         {\ifcompact{\small}{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
           Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
           Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
           \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
@@ -335,7 +338,7 @@
 \ifdetailed{
   \bibitem{cuda}
     \EngRus{{\itshape V.P. Toigildin} Research and development of parallel algorithm
-            for genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
+            for~genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
             \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
                  {\textcolor{blue}{\underline{p.12}}}}
            {{\itshape Тойгильдин В.П.} Разработка и исследование параллельного алгоритма
@@ -354,12 +357,12 @@
     {\EngRus{Fellowship of CUDA Center of Excellence MSU}
             {Стипендия от CUDA Center of Excellence МГУ}%
     }
+    {}
     {\EngRus{Moscow}{Москва}}
     {}
-    {}
-    {\EngRus{\href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Won a fellowships}}}
-             for a significant acceleration of computing for my research using GPU.}
-            {\href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Выиграл стипендию}}}
+    {\EngRus{\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Won a fellowship}}}
+             for a significant acceleration of computing for~my~research using GPU.}
+            {\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Выиграл стипендию}}}
             за существенное ускорение вычислений для своей исследовательской работы
             за счет применения графических процессоров.}%
     }
@@ -367,11 +370,11 @@
   \section{\EngRus{Open Source Project}{Open Source Проекты}}
   \cvline
     {\href{https://github.com/vladisalv/mpisbars}{\textcolor{blue}{\underline{mpiSBARS}}}}
-    {\EngRus{Parallel program for recognition of extended inexact repeats in genome.
-             I used MPI+CUDA model for scalability on heterogeneous computer system.}
+    {\EngRus{Parallel program for recognition of extended inexact repeats in~genome.
+             MPI+CUDA model is used for scalability on heterogeneous computer system.}
             {Параллельная программа для поиска неточных протяженных повторов
-             в биологических последовательностях. Для лучшей масштабируемости
-             на современных гетерогенных системах используется модель MPI+CUDA.}%
+             в биологических последовательностях. Используется модель MPI+CUDA
+             для достижения лучшей масштабируемости на современных гетерогенных системах.}%
     }
 }
 
@@ -379,8 +382,8 @@
 
 \cvline
   {\EngRus{Languages}{Языки}}
-  {\EngRus{English(pre-intermediate), Russian(native)}
-          {Английский(продвинутое владение), Русский(родной)}}
+  {\EngRus{English(intermediate), Russian(native)}
+          {Английский(средний уровень), Русский(родной)}}
 \cvline
   {\EngRus{Interests}{Интересы}}
   {\EngRus{Improv theatre}{Сценическая импровизация}}

@@ -4,9 +4,8 @@ OUTPUT = --output-directory=$(OUTPUT_DIR)
 NAME = cv_TOIGILDIN_VLADISLAV
 JOBNAME = --jobname=$(NAME)
 
-.PHONY: all clean view move diff_styles diff_colors
+.PHONY: all clean view move diff_styles diff_colors diff_fonts
 
-#all: mkdir_output clean detailed view
 all: mkdir_output eng rus view
 
 eng: eng_compact eng_detailed
@@ -44,21 +43,27 @@ view: move
 	evince *.pdf
 
 mkdir_output:
-	mkdir -p output
+	mkdir -p $(OUTPUT_DIR)
 
-COMMAND = echo "\moderncvtheme[$(2)]{$(1)}" > style.tex && \
+######## DIFFERENT THEME ###########################
+
+COMMAND = echo '\moderncvtheme[$(2)]{$(1)}\n\
+                \\toggletrue{langRussian}\n\
+                \\togglefalse{langEnglish}\n\
+                \\toggletrue{detailed}\n\
+                \\togglefalse{compact}' > style.tex && \
           xelatex $(OUTPUT) $(JOBNAME)_diff $(TEX) && \
           mv $(OUTPUT_DIR)/$(NAME)_diff.pdf $(OUTPUT_DIR)/$(2)_$(1).pdf
 
 STYLE   = classic
-COLOR   = blue
+COLOR   = red
 
 diff_styles:
 	$(call COMMAND,classic,$(COLOR))
 	$(call COMMAND,casual,$(COLOR))
-	$(call COMMAND,fancy,$(COLOR))
-	$(call COMMAND,oldstyle,$(COLOR))
 	$(call COMMAND,banking,$(COLOR))
+	$(call COMMAND,oldstyle,$(COLOR))
+	$(call COMMAND,fancy,$(COLOR))
 
 diff_colors:
 	$(call COMMAND,$(STYLE),red)
@@ -69,3 +74,21 @@ diff_colors:
 	$(call COMMAND,$(STYLE),black)
 	$(call COMMAND,$(STYLE),burgundy)
 	$(call COMMAND,$(STYLE),purple)
+
+######## DIFFERENT FONTS ###########################
+
+FONTS  =  echo '\def\myfont{$(1)}\n\
+                \\toggletrue{langRussian}\n\
+                \\togglefalse{langEnglish}\n\
+                \\toggletrue{detailed}\n\
+                \\togglefalse{compact}' > style.tex && \
+          xelatex $(OUTPUT) $(JOBNAME)_diff $(TEX) && \
+          mv $(OUTPUT_DIR)/$(NAME)_diff.pdf $(OUTPUT_DIR)/cv_$(1).pdf
+
+diff_fonts:
+	$(call FONTS,Constantia)
+	$(call FONTS,Garamond)
+	$(call FONTS,Georgia)
+	$(call FONTS,Helvetica)
+	$(call FONTS,Calibri)
+	$(call FONTS,FreeSans)
