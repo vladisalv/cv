@@ -138,7 +138,7 @@
   \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
   \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
 }
-\photo[64pt][0.4pt]{photo91kb.jpg}
+\photo[64pt][0.4pt]{99small.jpg}
 
 %-------------------------------------------------------------------------------
 % BEGIN DOCUMENT
@@ -212,9 +212,44 @@
     }
   }
 
+% @PLAN: remove
+\ifdetailed{
+\iflangRussian{
+  \cventry
+    {09.2014 -- 08.2016}
+    {\EngRus{Researcher}{Исследователь}}
+    {\EngRus{Research Computing Center MSU}{Научно-исследовательский вычислительный центр МГУ}}
+    {\EngRus{Moscow}{Москва}}
+    {}
+    {
+      \EngRus{Design and development of parallel version of algorithm search
+              of repeats in biological sequence.}
+             {Проектирование и разработка параллельной версии алгоритма
+              поиска повторов в биологических последовательностях.}
+      \ifdetailed{
+        \begin{adjustwidth}{0.5cm}{0cm}
+          \begin{itemize}
+            \item \EngRus{}
+                         {Разработка параллельного спектрально-аналитического метода
+                          для гетерогенных многопроцессорных систем с распределенной памятью.}
+            \item \EngRus{}
+                         {Проектирование объектно-ориентированной архитектуры, позволяющей выделить в отдельные модули
+                         операции межпроцессорного взаимодействия и работу с графическими процессорами.}
+            \item \EngRus{}
+                         {Реализация параллельной программы, использующей технологию обмена сообщениями
+                          с возможностью задействования графических процессоров в качестве ускорителей (C++/MPI/cuda).}
+            \item \EngRus{}
+                         {Анализ эффективности и масштабируемости параллельного алгоритма.}
+          \end{itemize}
+        \end{adjustwidth}
+      }
+    }
+}
+}
+
 \cventry
   {11.2013 -- 10.2014}
-  {\EngRus{Technician}{Техник}}
+  {\EngRus{Technician}{Техник-программист}}
   {\EngRus{Nuclear Safety Institute}{ИБРАЭ РАН}}
   {\EngRus{Moscow}{Москва}}
   {}
@@ -270,6 +305,7 @@
                  algorithm for genome blurred repeats search"}
                 {Дипломная работа "Разработка и исследование параллельного
                  алгоритма поиска неточных повторов в геноме"}
+         \iflangEnglish{% @PLAN: remove
          \item \EngRus{Knowledges: Computer architecture and assembler language,
                  Algorithms and Data structures, Parallel data processing,
                  Operating systems, Databases, Mathematical analysis,
@@ -279,13 +315,16 @@
                  Суперкомпьютеры и параллельная обработка данных,
                  Операционные системы, Базы данных, Математический анализ,
                  Дискретная математика, Численные методы и другие.}
+         }
        \end{itemize}
      \end{adjustwidth}
    }
   }
 
 \ifdetailed{
-  \newpage
+  \iflangEnglish{
+    \newpage
+  }
 }
 
 %-------------------------------------------------------------------------------
@@ -329,7 +368,7 @@
           Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
           \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
                {\textcolor{blue}{\underline{Abstract}}}}
-         {\ifcompact{\small}{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
+         {\ifcompact{\small}{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}% @PLAN: remove \small
           Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
           Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
           \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
@@ -378,6 +417,22 @@
     }
 }
 
+% @PLAN: left just one
+\iflangRussian{
+  \ifcompact{
+    \section{\EngRus{Additional information}{Дополнительная информация}}
+
+    \cvline
+      {\EngRus{Languages}{Языки}}
+      {\EngRus{English(intermediate), Russian(native)}
+              {Английский(средний уровень), Русский(родной)}}
+    \cvline
+      {\EngRus{Interests}{Интересы}}
+      {\EngRus{Improv theatre}{Сценическая импровизация}}
+  }
+}
+% @PLAN: left just one
+\iflangEnglish{
 \section{\EngRus{Additional information}{Дополнительная информация}}
 
 \cvline
@@ -387,6 +442,7 @@
 \cvline
   {\EngRus{Interests}{Интересы}}
   {\EngRus{Improv theatre}{Сценическая импровизация}}
+}
 
 
 % footer -----------------------------------------------------------------------
