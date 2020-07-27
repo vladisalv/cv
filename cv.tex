@@ -102,6 +102,7 @@
 % SET OPTION PACKAGE
 %-------------------------------------------------------------------------------
 
+\usepackage{fontspec}
 \usepackage{polyglossia} % load multi language
 \iflangEnglish{
   \setdefaultlanguage{english}
@@ -111,7 +112,10 @@
   \setdefaultlanguage[spelling=modern]{russian}
   \setotherlanguage{english} % second language
   \defaultfontfeatures{Ligatures={TeX},Renderer=Basic}
-  \newfontfamily\russianfont[Script=Cyrillic]{\myfont}
+  \setmainfont{\myfont}
+  \newfontfamily\cyrillicfont{\myfont}
+  \newfontfamily\cyrillicfontsf{\myfont}
+  \newfontfamily\cyrillicfonttt{\myfont}
 }
 
 \ifcompact{

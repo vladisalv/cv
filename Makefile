@@ -1,4 +1,5 @@
 TEX = cv.tex
+PDF_VIEWER=mupdf
 OUTPUT_DIR=output
 OUTPUT = --output-directory=$(OUTPUT_DIR)
 NAME = cv_TOIGILDIN_VLADISLAV
@@ -40,7 +41,7 @@ move:
 	cp $(OUTPUT_DIR)/*.pdf .
 
 view: move
-	evince *.pdf
+	$(PDF_VIEWER) *.pdf
 
 mkdir_output:
 	mkdir -p $(OUTPUT_DIR)
