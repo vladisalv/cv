@@ -45,7 +45,7 @@
 %-------------------------------------------------------------------------------
 
 \newcommand\ifjobname[2]{
-  \expandafter\ifstrequal\expandafter{\jobname}{cv_TOIGILDIN_VLADISLAV#1}
+  \expandafter\ifstrequal\expandafter{\jobname}{TOIGILDIN_VLADISLAV_dev#1}
   {#2}
   {}
 }
@@ -136,7 +136,7 @@
 \title{Software Developer}
 \address{\EngRus{Moscow, Russia}{Россия, Москва}}
 \phone[mobile]{+7~916~576~66~39}
-\email{vladisalv@yandex.ru}
+\email{vtoigildin@protonmail.com}
 \extrainfo{%
   \\%
   \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
@@ -164,26 +164,85 @@
   \iftoggle{detailed}{You use detailed}{}
   \jobname
 }
-%
+
 %\ifdetailed{
-%  \section{Objective}
+%  \section{\EngRus{Objective}{Цель}}
 %  \begin{adjustwidth}{2.5cm}{0cm}
 %    \begin{center}
-%% @PLAN: here my common profile and specialization. something like this:
-%      A position in the field of computers with special interests in business
-%      applications programming, information processing, and management systems.
-%% or this:
-% Experience in a variety of technologies, operating systems and languages.
-% More than 30 years in software development and system administration.
+%      \EngRus{Plan}
+%             {Планирую}
 %    \end{center}
 %  \end{adjustwidth}
 %}
-%
+
 %-------------------------------------------------------------------------------
 % EXPERIENCE
 %-------------------------------------------------------------------------------
 
 \section{\EngRus{Experience}{Опыт работы}}
+
+\cventry
+  {11.2016 -- 01.2019}
+  {\EngRus{Deep Learning Performance Engineer}{Инженер-программист}}
+  {NVIDIA}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+    \ifcompact{
+      \EngRus{{\itshape Development of a system for benchmarking DL frameworks.}}
+             {{\itshape Разработка системы для тестирования DL библиотек.}}
+             {{\itshape }}
+    }
+    \ifdetailed{
+      \EngRus{{Development of a system for benchmarking DL frameworks using GPUs.}}
+             {{Разработка системы для тестирования производительности DL библиотек на графических ускорителях.}}
+      \vfill
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Code development of device Linux driver.}
+                       {Разработка драйвера устройств ядра ОС Linux.}
+          \item \EngRus{Development of internal perf tool (C++ and Perl).}
+                       {Разработка утилиты анализа производительности (C++ и Perl).}
+          \item \EngRus{Work with an international team. Regular code review.}
+                       {Работа в интернациональной команде. Постоянный код ревью.}
+          \item \EngRus{Design, creation and management of test environment.}
+                       {Проектирование, создание и настройка системы тестирования.}
+        \end{itemize}
+      \end{adjustwidth}
+    }
+  }
+
+\cventry
+  {09.2014 -- 08.2016}
+  {\EngRus{Researcher}{Исследователь}}
+  {\EngRus{Research Computing Center MSU}{Научно-исследовательский вычислительный центр МГУ}}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+    \EngRus{Design and development of a parallel version of the algorithm
+            of repeats search in biological sequence.}
+           {Проектирование и разработка параллельной версии алгоритма
+            поиска повторов в биологических последовательностях.}
+    \ifdetailed{
+      \vfill
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Development of parallel spectral-analytical method
+                        for heterogeneous distributed multiprocessing systems.}
+                       {Разработка параллельного спектрально-аналитического метода
+                        для гетерогенных многопроцессорных систем с распределенной памятью.}
+          \item \EngRus{Design of object-oriented architecture for encapsulation of IPC and GPU computing.}
+                       {Проектирование объектно-ориентированной архитектуры, позволяющей выделить в отдельные модули
+                        операции межпроцессорного взаимодействия и работу с графическими процессорами.}
+          \item \EngRus{Implementation of the parallel program using MPI and CUDA.}
+                       {Реализация параллельной программы, использующей технологию обмена сообщениями
+                        с возможностью задействования графических процессоров в качестве ускорителей (C++/MPI/cuda).}
+          \item \EngRus{Analysis of efficiency and scalability of parallel program.}
+                       {Анализ эффективности и масштабируемости параллельного алгоритма.}
+        \end{itemize}
+      \end{adjustwidth}
+    }
+  }
 
 \cventry
   {06.2015 -- 03.2016}
@@ -216,50 +275,9 @@
     }
   }
 
-% @PLAN: remove
-\ifdetailed{\iflangEnglish{\vspace{8mm}}}
-
-% @PLAN: remove
-\ifdetailed{
-  \cventry
-    {09.2014 -- 08.2016}
-    {\EngRus{Researcher}{Исследователь}}
-    {\EngRus{Research Computing Center MSU}{Научно-исследовательский вычислительный центр МГУ}}
-    {\EngRus{Moscow}{Москва}}
-    {}
-    {
-      \EngRus{Design and development of a parallel version of the algorithm
-              of repeats search in biological sequence.}
-             {Проектирование и разработка параллельной версии алгоритма
-              поиска повторов в биологических последовательностях.}
-      \ifdetailed{
-        \vfill
-        \begin{adjustwidth}{0.5cm}{0cm}
-          \begin{itemize}
-            \item \EngRus{Development of parallel spectral-analytical method
-                          for heterogeneous distributed multiprocessing systems.}
-                         {Разработка параллельного спектрально-аналитического метода
-                          для гетерогенных многопроцессорных систем с распределенной памятью.}
-            \item \EngRus{Design of object-oriented architecture for encapsulation of IPC and GPU computing.}
-                         {Проектирование объектно-ориентированной архитектуры, позволяющей выделить в отдельные модули
-                          операции межпроцессорного взаимодействия и работу с графическими процессорами.}
-            \item \EngRus{Implementation of the parallel program using MPI and CUDA.}
-                         {Реализация параллельной программы, использующей технологию обмена сообщениями
-                          с возможностью задействования графических процессоров в качестве ускорителей (C++/MPI/cuda).}
-            \item \EngRus{Analysis of efficiency and scalability of parallel program.}
-                         {Анализ эффективности и масштабируемости параллельного алгоритма.}
-          \end{itemize}
-        \end{adjustwidth}
-      }
-    }
-}
-
-% @PLAN: remove
-\ifdetailed{\iflangEnglish{\vspace{8mm}}}
-
 \cventry
   {11.2013 -- 10.2014}
-  {\EngRus{Technician}{Техник-программист}}
+  {\EngRus{Technician (Part Time)}{Техник-программист (частичная занятость)}}
   {\EngRus{Nuclear Safety Institute of~the~Russian Academy of~Sciences}{ИБРАЭ РАН}}
   {\EngRus{Moscow}{Москва}}
   {}
@@ -283,7 +301,32 @@
     }
   }
 
-\newpage
+%-------------------------------------------------------------------------------
+% TECHNICAL SKILLS
+%-------------------------------------------------------------------------------
+
+\section{\EngRus{Technical skills}{Технические навыки}}
+
+\cvline
+  {Languages}
+  {C, C++, Bash, Assembler, Perl(basic), Fortran(basic)}
+\cvline
+  {VCS}
+  {Git}
+\cvline
+  {OS}
+  {GNU/Linux, FreeBSD}
+\cvline
+  {HPC}
+  {MPI, Cuda, OpenMP}
+\ifdetailed{
+  \cvline
+    {Builder}
+    {Make, Autotools}
+}
+\cvline
+  {Others}
+  {Qt(basic), \LaTeX, Gnu plot}
 
 %-------------------------------------------------------------------------------
 % EDUCATION
@@ -317,83 +360,54 @@
                        algorithm for genome blurred repeats search"}
                       {Дипломная работа "Разработка и исследование параллельного
                        алгоритма поиска неточных повторов в геноме"}
-         % @PLAN: uncomment
-         %\item \EngRus{Knowledges: Computer architecture and assembler language,
-         %              Algorithms and Data structures, Parallel data processing,
-         %              Operating systems, Databases, Mathematical analysis,
-         %              Discrete mathematics, Numerical methods and others.}
-         %             {Прослушанные курсы: Архитектура ЭВМ и язык ассемблера,
-         %              Алгоритмы и алгоритмические языки,
-         %              Суперкомпьютеры и параллельная обработка данных,
-         %              Операционные системы, Базы данных, Математический анализ,
-         %              Дискретная математика, Численные методы и другие.}
+         \item \EngRus{Knowledges: Algorithms and Data structures, Parallel data processing,
+                       Operating systems, Databases, Computer architecture and assembler language,
+                       Mathematical analysis, Discrete mathematics, Numerical methods and others.}
+                      {Прослушанные курсы: Алгоритмы и алгоритмические языки,
+                       Суперкомпьютеры и параллельная обработка данных,
+                       Операционные системы, Базы данных, Архитектура ЭВМ и язык ассемблера,
+                       Математический анализ, Дискретная математика, Численные методы и другие.}
        \end{itemize}
      \end{adjustwidth}
    }
   }
 
 %-------------------------------------------------------------------------------
-% TECHNICAL SKILLS
-%-------------------------------------------------------------------------------
-
-\section{\EngRus{Technical skills}{Технические навыки}}
-
-\cvline
-  {Languages}
-  {C, C++, Bash, Assembler, Perl(basic), Fortran(basic)}
-\cvline
-  {VCS}
-  {Git}
-\cvline
-  {OS}
-  {GNU/Linux, FreeBSD}
-\cvline
-  {HPC}
-  {MPI, Cuda, OpenMP}
-\ifdetailed{
-  \cvline
-    {Builder}
-    {Make, Autotools}
-}
-\cvline
-  {Others}
-  {Qt(basic), \LaTeX, Gnu plot}
-
-%-------------------------------------------------------------------------------
 % PUBLICATIONS, AWARDS, OPEN SOURCE PROJECT, ADDITIONAL INFO AND FOOTER
 %-------------------------------------------------------------------------------
 
-% ----------  Publications -----------------------------------------------------
-\renewcommand\refname{\EngRus{Publications}{Публикации}}
-\begin{thebibliography}{0}
-
-\bibitem{ISP}
-  \EngRus{{\itshape A.N. Pankratov, R.K. Tetuev, M.I. Pyatkov, V.P. Toigildin, N.N. Popova}
-          Spectral analytical method of recognition of inexact repeats in character sequences.~--~
-          Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
-          \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
-               {\textcolor{blue}{\underline{Abstract}}}}
-         {\ifcompact{\small}{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}% @PLAN: remove \small
-          Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
-          Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
-          \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
-               {\textcolor{blue}{\underline{Стр. 335-344}}}}
-
+% ---------- Publications ------------------------------------------------------
 \ifdetailed{
-  \bibitem{cuda}
-    \EngRus{{\itshape V.P. Toigildin} Research and development of parallel algorithm
-            for~genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
-            \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
-                 {\textcolor{blue}{\underline{p.12}}}}
-           {{\itshape Тойгильдин В.П.} Разработка и исследование параллельного алгоритма
-            поиска неточных повторов в геноме. -- CUDA Альманах, Февраль 2015.~--~
-            \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
-                 {\textcolor{blue}{\underline{Стр. 12}}}}
+  \renewcommand\refname{\EngRus{Publications}{Публикации}}
+  \begin{thebibliography}{0}
+
+  \bibitem{ISP}
+    \EngRus{{\itshape A.N. Pankratov, R.K. Tetuev, M.I. Pyatkov, V.P. Toigildin, N.N. Popova}
+            Spectral analytical method of recognition of inexact repeats in character sequences.~--~
+            Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
+            \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
+                 {\textcolor{blue}{\underline{Abstract}}}}
+           {{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
+            Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
+            Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
+            \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
+                 {\textcolor{blue}{\underline{Стр. 335-344}}}}
+
+    \bibitem{cuda}
+      \EngRus{{\itshape V.P. Toigildin} Research and development of parallel algorithm
+              for~genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
+              \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
+                   {\textcolor{blue}{\underline{p.12}}}}
+             {{\itshape Тойгильдин В.П.} Разработка и исследование параллельного алгоритма
+              поиска неточных повторов в геноме. -- CUDA Альманах, Февраль 2015.~--~
+              \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
+                   {\textcolor{blue}{\underline{Стр. 12}}}}
+
+  \end{thebibliography}
 }
+% ---------- End Publications --------------------------------------------------
 
-\end{thebibliography}
-% ----------  End Publications -------------------------------------------------
-
+% ---------- Awards ------------------------------------------------------------
 \ifdetailed{
   \section{\EngRus{Awards}{Награды}}
   \cventry
@@ -410,7 +424,11 @@
             за существенное ускорение вычислений для своей исследовательской работы
             за счет применения графических процессоров.}%
     }
+}
+% ---------- End Awards --------------------------------------------------------
 
+% ---------- Open Source -------------------------------------------------------
+\ifdetailed{
   \section{\EngRus{Open Source Project}{Open Source Проекты}}
   \cvline
     {\href{https://github.com/vladisalv/mpisbars}{\textcolor{blue}{\underline{mpiSBARS}}}}
@@ -421,37 +439,30 @@
              для достижения лучшей масштабируемости на современных гетерогенных системах.}%
     }
 }
+% ---------- End Open Source ---------------------------------------------------
 
-% @PLAN: remove ifcompact
-\ifcompact{
-  \section{\EngRus{Additional information}{Дополнительная информация}}
-  \cvline
-    {\EngRus{Languages}{Языки}}
-    {\EngRus{English(intermediate), Russian(native)}
-            {Английский(средний уровень), Русский(родной)}}
-  \cvline
-    {\EngRus{Interests}{Интересы}}
-    {\EngRus{Improv theatre}{Сценическая импровизация}}
-}
+% ---------- Additional information --------------------------------------------
+\section{\EngRus{Additional information}{Дополнительная информация}}
+\cvline
+  {\EngRus{Languages}{Языки}}
+  {\EngRus{English(intermediate), Russian(native)}
+          {Английский(средний уровень), Русский(родной)}}
+\cvline
+  {\EngRus{Interests}{Интересы}}
+  {\EngRus{Improv theatre}{Сценическая импровизация}}
+% ---------- Additional information --------------------------------------------
 
-% footer -----------------------------------------------------------------------
+% ---------- Footer ------------------------------------------------------------
 \fancyfoot[C]{\scriptsize ~~~~~~~~~~~~~~~~~~~~~~~~~~~
               You can find recent and more detailed version cv
               \href{https://github.com/vladisalv/cv}{\underline{here}}.\newline
               Last updated: \today\-}
+% ---------- End Footer --------------------------------------------------------
 
-% @PLAN: remove cuda publication when will new pub.
-% @PLAN: insert (Part Time/Частичная занятость) к ИБРАЭ
 % @PLAN: English(IELTS 7.0 Overall: 6.0L, 7.0R, 8.0W, 7.0S) after IELTS
-% @PLAN: add someday Fields of Scientific Interest
-% @PLAN: rename Additional information to Personal Information???
-% @PLAN: \renewcommand\refname{Selected publications} (Избранные публикации)
-% when i will have more 4 paper
-% @PLAN: someday insert timeline
-% @PLAN: add someday section Communication Skills/Public Activity
-% @PLAN: after pass courses on Coursera i can paste in section Education:
+% @PLAN: add section Communication Skills/Public Activity
+% @PLAN: section Education:
 % \subsection{University}
 % \subsection{MOOOCs (Coursera)} (https://en.wikipedia.org/wiki/Massive_open_online_course)
-% @PLAN: version of CV 20-ty seconds (Alice in Wonderland)
 
 \end{document}

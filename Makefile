@@ -2,7 +2,7 @@ TEX = cv.tex
 PDF_VIEWER=mupdf
 OUTPUT_DIR=output
 OUTPUT = --output-directory=$(OUTPUT_DIR)
-NAME = cv_TOIGILDIN_VLADISLAV
+NAME = TOIGILDIN_VLADISLAV_dev
 JOBNAME = --jobname=$(NAME)
 
 .PHONY: all clean view move diff_styles diff_colors diff_fonts
