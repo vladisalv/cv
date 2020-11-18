@@ -189,24 +189,34 @@
   {}
   {
     \ifcompact{
-      \EngRus{{\itshape Development of a system for benchmarking DL frameworks.}}
-             {{\itshape Разработка системы для тестирования DL библиотек.}}
-             {{\itshape }}
+      \EngRus{{\itshape Development of a system for benchmarking DL frameworks (TensorFlow, PyTorch and etc).}}
+             {{\itshape Разработка системы для тестирования DL фреймворков (TensorFlow, PyTorch and etc).}}
     }
     \ifdetailed{
-      \EngRus{{Development of a system for benchmarking DL frameworks using GPUs.}}
-             {{Разработка системы для тестирования производительности DL библиотек на графических ускорителях.}}
+      \EngRus{{Development of a system for benchmarking DL (TensorFlow, PyTorch and etc) frameworks using GPUs.}}
+             {{Разработка системы для тестирования производительности DL фреймворков (TensorFlow, PyTorch and etc) на графических ускорителях.}}
       \vfill
       \begin{adjustwidth}{0.5cm}{0cm}
         \begin{itemize}
-          \item \EngRus{Code development of device Linux driver.}
-                       {Разработка драйвера устройств ядра ОС Linux.}
-          \item \EngRus{Development of internal perf tool (C++ and Perl).}
-                       {Разработка утилиты анализа производительности (C++ и Perl).}
-          \item \EngRus{Work with an international team. Regular code review.}
-                       {Работа в интернациональной команде. Постоянный код ревью.}
-          \item \EngRus{Design, creation and management of test environment.}
-                       {Проектирование, создание и настройка системы тестирования.}
+          \item \EngRus{Developed a toolchain for automation of the test process.\newline
+                        Speed it up in 5 times.}
+                       {Разработал набор инструментов для автоматизации тестирования.
+                        Ускорил весь цикл проведения тестов в 5 раз.}
+          \item \EngRus{I was a senior maintainer
+                        \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{for monthly baselines}}}
+                        performance data for a year.}
+                       {Больше года был основным мейнтейнером данных
+                        \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{для~ежемесячных~отчетов}}}
+                        о~производительности нашего~железа.}
+          \item \EngRus{Developed DL benchmarks: preparing data and models, deploying, running,
+                        collecting data, uploading stats into database.}
+                       {Разрабатывал бенчмарки для DL фреймворков:
+                        подготавка данных и моделей, деплой на сервера,
+                        запуск, сбор статистики, выгрузка результатов в базы данных.}
+          \item \EngRus{Updated legacy Perl code to Python.}
+                       {Обновлял legacy-код приложений c Perl на Python.}
+          \item \EngRus{Participated in the design process of cloud container infrastructure.}
+                       {Принимал участие в создании облачной инфраструктуры.}
         \end{itemize}
       \end{adjustwidth}
     }
@@ -215,30 +225,37 @@
 \cventry
   {09.2014 -- 08.2016}
   {\EngRus{Researcher}{Исследователь}}
-  {\EngRus{Research Computing Center MSU}{Научно-исследовательский вычислительный центр МГУ}}
+  {\EngRus{Research Computing Center MSU}
+          {Научно-исследовательский вычислительный центр МГУ}}
   {\EngRus{Moscow}{Москва}}
   {}
   {
-    \EngRus{Design and development of a parallel version of the algorithm
-            of repeats search in biological sequence.}
-           {Проектирование и разработка параллельной версии алгоритма
-            поиска повторов в биологических последовательностях.}
+    \ifcompact{
+      \EngRus{{\itshape Design and development of a parallel version of the algorithm
+              of repeats search in biological sequence.}}
+             {{\itshape Проектирование и разработка параллельной версии алгоритма
+              поиска повторов в биологических последовательностях.}}
+    }
     \ifdetailed{
+      \EngRus{Design and development of a parallel version of algorithm
+              for genome blurred repeats search.}
+             {Проектирование и разработка параллельной версии алгоритма
+              поиска неточных повторов в геноме.}
       \vfill
       \begin{adjustwidth}{0.5cm}{0cm}
         \begin{itemize}
-          \item \EngRus{Development of parallel spectral-analytical method
+          \item \EngRus{Developed a parallel spectral-analytical method
                         for heterogeneous distributed multiprocessing systems.}
-                       {Разработка параллельного спектрально-аналитического метода
+                       {Разработал алгоритм для параллельного спектрально-аналитического метода
                         для гетерогенных многопроцессорных систем с распределенной памятью.}
-          \item \EngRus{Design of object-oriented architecture for encapsulation of IPC and GPU computing.}
-                       {Проектирование объектно-ориентированной архитектуры, позволяющей выделить в отдельные модули
-                        операции межпроцессорного взаимодействия и работу с графическими процессорами.}
-          \item \EngRus{Implementation of the parallel program using MPI and CUDA.}
-                       {Реализация параллельной программы, использующей технологию обмена сообщениями
-                        с возможностью задействования графических процессоров в качестве ускорителей (C++/MPI/cuda).}
-          \item \EngRus{Analysis of efficiency and scalability of parallel program.}
-                       {Анализ эффективности и масштабируемости параллельного алгоритма.}
+          \item \EngRus{Designed a object-oriented architecture for flexible balancing between computational nodes.}
+                       {Спроектировал объектно-ориентированную архитектуру, позволяющую
+                        настраивать гибкую балансировку между узлами вычислительной сети.}
+          \item \EngRus{Developed the parallel program using MPI and CUDA.}
+                       {Разработал параллельную программу, использующую технологию
+                        обмена сообщениями и графические ускорители (C++/MPI/Cuda).}
+          \item \EngRus{Optimized app for linear scale up to 2048 processors.}
+                       {Поднял масштабируемость алгоритма до линейной вплоть до 2048 процессоров.}
         \end{itemize}
       \end{adjustwidth}
     }
@@ -262,14 +279,12 @@
       \vfill
       \begin{adjustwidth}{0.5cm}{0cm}
         \begin{itemize}
-          \item \EngRus{Code development of device Linux driver.}
-                       {Разработка драйвера устройств ядра ОС Linux.}
-          \item \EngRus{Development of internal perf tool (C++ and Perl).}
-                       {Разработка утилиты анализа производительности (C++ и Perl).}
-          \item \EngRus{Work with an international team. Regular code review.}
-                       {Работа в интернациональной команде. Постоянный код ревью.}
-          \item \EngRus{Design, creation and management of test environment.}
-                       {Проектирование, создание и настройка системы тестирования.}
+          \item \EngRus{Developed Linux driver for SCSI devices.}
+                       {Разрабатывал Linux драйвер для SCSI-устройств хранения данных.}
+          \item \EngRus{Modified internal disk perf analyze tool (C++ and Perl).}
+                       {Модифицировал внутренюю утилиту анализа производительности дисков (C++ и Perl).}
+          \item \EngRus{Designed and implemented stress testing system.}
+                       {Спроектировал и разработал систему стресс-тестирования.}
         \end{itemize}
       \end{adjustwidth}
     }
@@ -288,14 +303,10 @@
       \vfill
       \begin{adjustwidth}{0.5cm}{0cm}
         \begin{itemize}
-          \item \EngRus{Design and implementation of GUI (Qt).}
-                       {Проектирование и реализация графического интерфейса (Qt).}
-          \item \EngRus{Configuration of development environment.}
-                       {Конфигурирование и поддержка среды разработки.}
-          \item \EngRus{Implementation of new features into the main project code (Fortran).}
-                       {Реализация и добавление новой функциональности в основной код проекта (Fortran).}
-          \item \EngRus{Teaching the team the basics of *nix and features of HPC software development.}
-                       {Обучение команды основам работы в *nix системах}
+          \item \EngRus{Designed and implemented GUI (Qt).}
+                       {Спроектировал и реализовал графический интерфейс основной программы (Qt).}
+          \item \EngRus{Added GPU computing support (Cuda)}
+                       {Добавил поддержку вычислений на графических устройствах (Cuda).}
         \end{itemize}
       \end{adjustwidth}
     }
@@ -309,24 +320,33 @@
 
 \cvline
   {Languages}
-  {C, C++, Bash, Assembler, Perl(basic), Fortran(basic)}
+  {Python, Perl, Bash, C, C++}
 \cvline
-  {VCS}
-  {Git}
+  {Frameworks}
+  {Flask, Django}
 \cvline
   {OS}
-  {GNU/Linux, FreeBSD}
+  {Linux}
 \cvline
-  {HPC}
-  {MPI, Cuda, OpenMP}
+  {CI/CD}
+  {Docker, GitLab CI}
+\cvline
+  {SQL}
+  {PostgreSQL}
 \ifdetailed{
+  \cvline
+    {VCS}
+    {Git}
+  \cvline
+    {HPC}
+    {MPI, Cuda, OpenMP}
   \cvline
     {Builder}
     {Make, Autotools}
+  \cvline
+    {Others}
+    {Qt, \LaTeX, Gnu plot}
 }
-\cvline
-  {Others}
-  {Qt(basic), \LaTeX, Gnu plot}
 
 %-------------------------------------------------------------------------------
 % EDUCATION
