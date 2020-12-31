@@ -9,9 +9,9 @@
 % I used Constantia font and classic blue theme.
 % Also, i liked Garamond, Georgia and Helvetica fonts.
 %
-% For compile 4 different documents run `make` without any arguments.
+% For compiling 4 different documents run `make` without any arguments.
 %
-% Check fonts embedded to pdf before publish your cv (use pdffonts).
+% Check fonts embedded in pdf before publishing your cv (use pdffonts).
 %
 % Project address: https://github.com/vladisalv/cv
 %
@@ -133,7 +133,7 @@
 
 \firstname{\EngRus{Vladislav}{Владислав}}
 \familyname{\EngRus{Toigildin}{Тойгильдин}}
-\title{Software Developer}
+\title{Software Engineer}
 \address{\EngRus{Moscow, Russia}{Россия, Москва}}
 \phone[mobile]{+7~916~576~66~39}
 \email{vtoigildin@protonmail.com}
@@ -143,6 +143,19 @@
   \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
 }
 \photo[64pt][0.4pt]{photo.jpg}
+
+
+\definecolor{dark-gray}{gray}{0.2}
+\quote{{\raggedleft\color{dark-gray}
+  \EngRus{Changing professional field to~backend~development. Looking~for a small team
+          creating services for~business~customers.}
+         {\normalsize Меняю сферу деятельности на~backend-разработку. Интересует работа в~небольшой команде,
+          которая находится в~прямом контакте с~заказчиком.}
+}}
+\let\originalrecomputecvlengths\recomputecvlengths
+\renewcommand*{\recomputecvlengths}{%
+\originalrecomputecvlengths%
+\setlength{\quotewidth}{0.8\textwidth}}
 
 %-------------------------------------------------------------------------------
 % BEGIN DOCUMENT
@@ -165,21 +178,56 @@
   \jobname
 }
 
-%\ifdetailed{
-%  \section{\EngRus{Objective}{Цель}}
-%  \begin{adjustwidth}{2.5cm}{0cm}
-%    \begin{center}
-%      \EngRus{Plan}
-%             {Планирую}
-%    \end{center}
-%  \end{adjustwidth}
-%}
-
 %-------------------------------------------------------------------------------
 % EXPERIENCE
 %-------------------------------------------------------------------------------
 
 \section{\EngRus{Experience}{Опыт работы}}
+
+% crutch
+\ifdetailed{
+  \iflangEnglish{
+    \vspace{5mm}
+  }
+}
+
+\cventry
+  {\EngRus{04.2019 -- present}{04.2019 -- н.в.}}
+  {\EngRus{Founder}{Основатель}}
+  {\href{https://oitheatre.ru}{\textcolor{blue}{\underline{\EngRus{Oi Theatre}{Ой Театр}}}}}
+  {}
+  {}
+  {
+    \ifcompact{
+      \EngRus{{\itshape First improv comedy theatre in Moscow. \textbf{Non-IT field.}}}
+             {{\itshape Первый комедийный импров-театр Москвы. \textbf{Не IT-сфера.}}}
+    }
+    \ifdetailed{
+        \EngRus{{\itshape First improv comedy theatre in Moscow. \textbf{Non-IT field.}}}
+               {{\itshape Первый комедийный импров-театр Москвы. \textbf{Не IT-сфера.}}}
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Built a business model of the theatre.}
+                       {Построил бизнес-модель театра.}
+          \item \EngRus{Organized a weekly comedy show.}
+                       {Организовал еженедельное комедийное шоу.}
+          \item \EngRus{Created a video production team and organized workflow for regular process.}
+                       {Создал команду видеопродакшена и поставил производство контента на регулярную основу.}
+          \item \EngRus{Produced two show formats. Actively trained a theatre cast (15~actors).}
+                       {Спродюсировал два формата шоу. Тренировал труппу театра (15~актеров).}
+          \item \EngRus{Managed an operation team (5~workers).}
+                       {Управлял командой операционных процессов (5~работников).}
+        \end{itemize}
+      \end{adjustwidth}
+    }
+  }
+
+% crutch
+\ifdetailed{
+  \iflangEnglish{
+    \vspace{5mm}
+  }
+}
 
 \cventry
   {11.2016 -- 01.2019}
@@ -198,29 +246,73 @@
       \vfill
       \begin{adjustwidth}{0.5cm}{0cm}
         \begin{itemize}
-          \item \EngRus{Developed a toolchain for automation of the test process.\newline
-                        Speed it up in 5 times.}
-                       {Разработал набор инструментов для автоматизации тестирования.
+          \item \EngRus{Redesigned a Deep Learning benchmark system that speeded a monthly test workflow up 5 times and increased reliability.}
+                       {Спроектировал и разработал систему для автоматизации тестирования.
                         Ускорил весь цикл проведения тестов в 5 раз.}
           \item \EngRus{I was a senior maintainer
                         \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{for monthly baselines}}}
-                        performance data for a year.}
+                        performance data.}
                        {Больше года был основным мейнтейнером данных
                         \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{для~ежемесячных~отчетов}}}
                         о~производительности нашего~железа.}
-          \item \EngRus{Developed DL benchmarks: preparing data and models, deploying, running,
-                        collecting data, uploading stats into database.}
-                       {Разрабатывал бенчмарки для DL фреймворков:
-                        подготавка данных и моделей, деплой на сервера,
-                        запуск, сбор статистики, выгрузка результатов в базы данных.}
-          \item \EngRus{Updated legacy Perl code to Python.}
+          \item \EngRus{Actively troubleshot issues on Linux production servers.}
+                       {Регулярно фиксил баги на production-серверах.}
+          \item \EngRus{Modified Perl codebase to Python, that improved maintainability.}
                        {Обновлял legacy-код приложений c Perl на Python.}
-          \item \EngRus{Participated in the design process of cloud container infrastructure.}
+          \item \EngRus{Migrated our system to cloud infrastracture.}
                        {Принимал участие в создании облачной инфраструктуры.}
+          \item \EngRus{Developed DL benchmarks: preparing data and models, deploying, running,
+                        collecting data, uploading stats into databases.}
+                       {Разрабатывал бенчмарки для DL фреймворков:
+                        подготовка данных и моделей, деплой на сервера,
+                        запуск, сбор статистики, выгрузка результатов в базы данных.}
         \end{itemize}
       \end{adjustwidth}
     }
   }
+
+% crutch
+\ifdetailed{
+  \iflangEnglish{
+    \vspace{5mm}
+  }
+}
+
+\cventry
+  {06.2015 -- 03.2016}
+  {\EngRus{Software engineer}{Инженер-программист}}
+  {IBM}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+    \ifcompact{
+      \EngRus{{\itshape Linux on IBM z System SAN component development.}}
+             {{\itshape Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}}
+    }
+    \ifdetailed{
+      \EngRus{{Development of a Linux driver (zfcp) for IBM z System (s390x) storage hardware.}}
+             {{Разработка Linux драйвера для устройств хранения данных
+              аппаратной платформы IBM z System (s390x).}}
+      \vfill
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Developed a Linux driver for SCSI devices.}
+                       {Разрабатывал Linux драйвер для SCSI-устройств хранения данных.}
+          \item \EngRus{Modified an internal disk perf analyze tool (C++ and Perl).}
+                       {Модифицировал внутреннюю утилиту анализа производительности дисков (C++ и Perl).}
+          \item \EngRus{Designed and implemented a stress testing system.}
+                       {Спроектировал и разработал систему стресс-тестирования.}
+        \end{itemize}
+      \end{adjustwidth}
+    }
+  }
+
+% crutch
+\ifdetailed{
+  \iflangEnglish{
+    \vspace{5mm}
+  }
+}
 
 \cventry
   {09.2014 -- 08.2016}
@@ -248,69 +340,43 @@
                         for heterogeneous distributed multiprocessing systems.}
                        {Разработал алгоритм для параллельного спектрально-аналитического метода
                         для гетерогенных многопроцессорных систем с распределенной памятью.}
-          \item \EngRus{Designed a object-oriented architecture for flexible balancing between computational nodes.}
-                       {Спроектировал объектно-ориентированную архитектуру, позволяющую
-                        настраивать гибкую балансировку между узлами вычислительной сети.}
+%          \item \EngRus{Designed a object-oriented architecture for flexible balancing between computational nodes.}
+%                       {Спроектировал объектно-ориентированную архитектуру, позволяющую
+%                        настраивать гибкую балансировку между узлами вычислительной сети.}
           \item \EngRus{Developed the parallel program using MPI and CUDA.}
                        {Разработал параллельную программу, использующую технологию
                         обмена сообщениями и графические ускорители (C++/MPI/Cuda).}
-          \item \EngRus{Optimized app for linear scale up to 2048 processors.}
+          \item \EngRus{Optimized the parallel program for linear scale up to 2048 processors.}
                        {Поднял масштабируемость алгоритма до линейной вплоть до 2048 процессоров.}
         \end{itemize}
       \end{adjustwidth}
     }
   }
 
-\cventry
-  {06.2015 -- 03.2016}
-  {\EngRus{Software engineer}{Инженер-программист}}
-  {IBM}
-  {\EngRus{Moscow}{Москва}}
-  {}
-  {
-    \ifcompact{
-      \EngRus{{\itshape Linux on IBM z System SAN component development.}}
-             {{\itshape Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}}
-    }
-    \ifdetailed{
-      \EngRus{{Development of Linux driver (zfcp) for IBM z System (s390x) storage hardware.}}
-             {{Разработка Linux драйвера для устройств хранения данных
-              аппаратной платформы IBM z System (s390x).}}
-      \vfill
-      \begin{adjustwidth}{0.5cm}{0cm}
-        \begin{itemize}
-          \item \EngRus{Developed Linux driver for SCSI devices.}
-                       {Разрабатывал Linux драйвер для SCSI-устройств хранения данных.}
-          \item \EngRus{Modified internal disk perf analyze tool (C++ and Perl).}
-                       {Модифицировал внутренюю утилиту анализа производительности дисков (C++ и Perl).}
-          \item \EngRus{Designed and implemented stress testing system.}
-                       {Спроектировал и разработал систему стресс-тестирования.}
-        \end{itemize}
-      \end{adjustwidth}
-    }
+\ifdetailed{
+  \iflangEnglish{
+    \cventry
+      {11.2013 -- 10.2014}
+      {\EngRus{Technician (Part Time)}{Техник-программист (частичная занятость)}}
+      {\EngRus{Nuclear Safety Institute of~the~Russian Academy of~Sciences}{ИБРАЭ РАН}}
+      {\EngRus{Moscow}{Москва}}
+      {}
+      {
+        \EngRus{{\ifcompact{\itshape}Development of a model of hydrodynamic process in liquids using CABARET scheme.}}
+               {{\ifcompact{\itshape}Разработка модели течения вязких жидкостей использующей схему КАБАРЕ.}}
+        \ifdetailed{
+          \begin{adjustwidth}{0.5cm}{0cm}
+            \begin{itemize}
+              \item \EngRus{Designed and implemented GUI (Qt).}
+                           {Спроектировал и реализовал графический интерфейс основной программы (Qt).}
+              \item \EngRus{Added GPU computing support (Cuda)}
+                           {Добавил поддержку вычислений на графических устройствах (Cuda).}
+            \end{itemize}
+          \end{adjustwidth}
+        }
+      }
   }
-
-\cventry
-  {11.2013 -- 10.2014}
-  {\EngRus{Technician (Part Time)}{Техник-программист (частичная занятость)}}
-  {\EngRus{Nuclear Safety Institute of~the~Russian Academy of~Sciences}{ИБРАЭ РАН}}
-  {\EngRus{Moscow}{Москва}}
-  {}
-  {
-    \EngRus{{\ifcompact{\itshape}Development of a model of hydrodynamic process in liquids using CABARET scheme.}}
-           {{\ifcompact{\itshape}Разработка модели течения вязких жидкостей использующей схему КАБАРЕ.}}
-    \ifdetailed{
-      \vfill
-      \begin{adjustwidth}{0.5cm}{0cm}
-        \begin{itemize}
-          \item \EngRus{Designed and implemented GUI (Qt).}
-                       {Спроектировал и реализовал графический интерфейс основной программы (Qt).}
-          \item \EngRus{Added GPU computing support (Cuda)}
-                       {Добавил поддержку вычислений на графических устройствах (Cuda).}
-        \end{itemize}
-      \end{adjustwidth}
-    }
-  }
+}
 
 %-------------------------------------------------------------------------------
 % TECHNICAL SKILLS
@@ -323,29 +389,27 @@
   {Python, Perl, Bash, C, C++}
 \cvline
   {Frameworks}
-  {Flask, Django}
+  {Flask (basic), Django (basic)}
 \cvline
   {OS}
   {Linux}
+\cvline
+  {VCS}
+  {Git}
 \cvline
   {CI/CD}
   {Docker, GitLab CI}
 \cvline
   {SQL}
   {PostgreSQL}
+
 \ifdetailed{
-  \cvline
-    {VCS}
-    {Git}
   \cvline
     {HPC}
     {MPI, Cuda, OpenMP}
   \cvline
-    {Builder}
-    {Make, Autotools}
-  \cvline
     {Others}
-    {Qt, \LaTeX, Gnu plot}
+    {Qt, \LaTeX, Autotools}
 }
 
 %-------------------------------------------------------------------------------
@@ -356,7 +420,7 @@
 
 \cventry
   {2010 -- 2015}
-  {\EngRus{MSc (equivalent) in Applied Mathematics and Computer Science}
+  {\EngRus{M.S. in Applied Mathematics and Computer Science}
           {Специалист по прикладной математике и информатике}%
   }
   {\EngRus{Lomonosov Moscow State University}{\newline МГУ им. М.В. Ломоносова}}
@@ -366,65 +430,66 @@
             {Факультет Вычислительной Математики и Кибернетики}%
    }%
   }
-  {\ifdetailed{
-     \vfill
-     \begin{adjustwidth}{0.5cm}{0cm}
-       \begin{itemize}
-         \item \EngRus{Qualification: specialist in mathematics and system programming}
-                      {Квалификация: математик, системный программист}
-         \item \EngRus{Department of Supercomputers and Quantum Informatics}
-                      {Кафедра Суперкомпьютеров и Квантовой Информатики}
-         \item \EngRus{Specialization: high performance computing}
-                      {Специализация: высокопроизводительные вычисления}
-         \item \EngRus{Master thesis "Research and development of parallel
-                       algorithm for genome blurred repeats search"}
-                      {Дипломная работа "Разработка и исследование параллельного
-                       алгоритма поиска неточных повторов в геноме"}
-         \item \EngRus{Knowledges: Algorithms and Data structures, Parallel data processing,
-                       Operating systems, Databases, Computer architecture and assembler language,
-                       Mathematical analysis, Discrete mathematics, Numerical methods and others.}
-                      {Прослушанные курсы: Алгоритмы и алгоритмические языки,
-                       Суперкомпьютеры и параллельная обработка данных,
-                       Операционные системы, Базы данных, Архитектура ЭВМ и язык ассемблера,
-                       Математический анализ, Дискретная математика, Численные методы и другие.}
-       \end{itemize}
-     \end{adjustwidth}
-   }
-  }
+  {}
+%  {\ifdetailed{
+%     \vfill
+%     \begin{adjustwidth}{0.5cm}{0cm}
+%       \begin{itemize}
+%         \item \EngRus{Qualification: specialist in mathematics and system programming}
+%                      {Квалификация: математик, системный программист}
+%         \item \EngRus{Department of Supercomputers and Quantum Informatics}
+%                      {Кафедра Суперкомпьютеров и Квантовой Информатики}
+%         \item \EngRus{Specialization: high performance computing}
+%                      {Специализация: высокопроизводительные вычисления}
+%         \item \EngRus{Master thesis "Research and development of parallel
+%                       algorithm for genome blurred repeats search"}
+%                      {Дипломная работа "Разработка и исследование параллельного
+%                       алгоритма поиска неточных повторов в геноме"}
+%         \item \EngRus{Knowledges: Algorithms and Data structures, Parallel data processing,
+%                       Operating systems, Databases, Computer architecture and assembler language,
+%                       Mathematical analysis, Discrete mathematics, Numerical methods and others.}
+%                      {Прослушанные курсы: Алгоритмы и алгоритмические языки,
+%                       Суперкомпьютеры и параллельная обработка данных,
+%                       Операционные системы, Базы данных, Архитектура ЭВМ и язык ассемблера,
+%                       Математический анализ, Дискретная математика, Численные методы и другие.}
+%       \end{itemize}
+%     \end{adjustwidth}
+%   }
+%  }
 
 %-------------------------------------------------------------------------------
 % PUBLICATIONS, AWARDS, OPEN SOURCE PROJECT, ADDITIONAL INFO AND FOOTER
 %-------------------------------------------------------------------------------
 
 % ---------- Publications ------------------------------------------------------
-\ifdetailed{
-  \renewcommand\refname{\EngRus{Publications}{Публикации}}
-  \begin{thebibliography}{0}
-
-  \bibitem{ISP}
-    \EngRus{{\itshape A.N. Pankratov, R.K. Tetuev, M.I. Pyatkov, V.P. Toigildin, N.N. Popova}
-            Spectral analytical method of recognition of inexact repeats in character sequences.~--~
-            Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
-            \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
-                 {\textcolor{blue}{\underline{Abstract}}}}
-           {{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
-            Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
-            Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
-            \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
-                 {\textcolor{blue}{\underline{Стр. 335-344}}}}
-
-    \bibitem{cuda}
-      \EngRus{{\itshape V.P. Toigildin} Research and development of parallel algorithm
-              for~genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
-              \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
-                   {\textcolor{blue}{\underline{p.12}}}}
-             {{\itshape Тойгильдин В.П.} Разработка и исследование параллельного алгоритма
-              поиска неточных повторов в геноме. -- CUDA Альманах, Февраль 2015.~--~
-              \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
-                   {\textcolor{blue}{\underline{Стр. 12}}}}
-
-  \end{thebibliography}
-}
+%\ifdetailed{
+%  \renewcommand\refname{\EngRus{Publications}{Публикации}}
+%  \begin{thebibliography}{0}
+%
+%  \bibitem{ISP}
+%    \EngRus{{\itshape A.N. Pankratov, R.K. Tetuev, M.I. Pyatkov, V.P. Toigildin, N.N. Popova}
+%            Spectral analytical method of recognition of inexact repeats in character sequences.~--~
+%            Proceedings of the Institute for System Programming Volume 27 (Issue 6). 2015 y. pp. 335-344.
+%            \href{http://www.ispras.ru/en/proceedings/isp_27_2015_6/isp_27_2015_6_335/}
+%                 {\textcolor{blue}{\underline{Abstract}}}}
+%           {{\itshape Панкратов А.Н., Тетуев Р.К., Пятков М.И., Тойгильдин В.П., Попова Н.Н.}
+%            Спектрально-аналитический метод распознавания неточных повторов в символьных последовательностях.~--~
+%            Труды Института системного программирования РАН Том 27. Выпуск 6. 2015 г.
+%            \href{http://www.ispras.ru/proceedings/docs/2015/27/6/isp_27_2015_6_335.pdf}
+%                 {\textcolor{blue}{\underline{Стр. 335-344}}}}
+%
+%    \bibitem{cuda}
+%      \EngRus{{\itshape V.P. Toigildin} Research and development of parallel algorithm
+%              for~genome blurred repeats search. -- CUDA Almanac, 2015 February.~--~
+%              \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
+%                   {\textcolor{blue}{\underline{p.12}}}}
+%             {{\itshape Тойгильдин В.П.} Разработка и исследование параллельного алгоритма
+%              поиска неточных повторов в геноме. -- CUDA Альманах, Февраль 2015.~--~
+%              \href{http://www.nvidia.ru/docs/IO/141194/CUDA-\%D0\%B0\%D0\%BB\%D1\%8C\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B0\%D1\%85-feb-2015.pdf}
+%                   {\textcolor{blue}{\underline{Стр. 12}}}}
+%
+%  \end{thebibliography}
+%}
 % ---------- End Publications --------------------------------------------------
 
 % ---------- Awards ------------------------------------------------------------
@@ -439,7 +504,7 @@
     {\EngRus{Moscow}{Москва}}
     {}
     {\EngRus{\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Won a grant}}}
-             for significant acceleration of computing for~my~research by using GPU.}
+             for significant acceleration of computing for~my~research by~using GPU.}
             {\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Выиграл стипендию}}}
             за существенное ускорение вычислений для своей исследовательской работы
             за счет применения графических процессоров.}%
@@ -452,24 +517,26 @@
   \section{\EngRus{Open Source Project}{Open Source Проекты}}
   \cvline
     {\href{https://github.com/vladisalv/mpisbars}{\textcolor{blue}{\underline{mpiSBARS}}}}
-    {\EngRus{Parallel program for recognition of extended inexact repeats in~genome.
+    {\EngRus{Parallel program for recognition of extended inexact repeats in~the~genome.
              MPI+CUDA model is used for better scalability on heterogeneous high performance systems.}
             {Параллельная программа для поиска неточных протяженных повторов
              в биологических последовательностях. Используется модель MPI+CUDA
-             для достижения лучшей масштабируемости на современных гетерогенных системах.}%
+             для достижения лучшей масштабируемости на современных гетерогенных системах.}
     }
 }
 % ---------- End Open Source ---------------------------------------------------
 
 % ---------- Additional information --------------------------------------------
-\section{\EngRus{Additional information}{Дополнительная информация}}
-\cvline
-  {\EngRus{Languages}{Языки}}
-  {\EngRus{English(intermediate), Russian(native)}
-          {Английский(средний уровень), Русский(родной)}}
-\cvline
-  {\EngRus{Interests}{Интересы}}
-  {\EngRus{Improv theatre}{Сценическая импровизация}}
+%\ifdetailed{
+%  \section{\EngRus{Additional information}{Дополнительная информация}}
+%  \cvline
+%    {\EngRus{Languages}{Языки}}
+%    {\EngRus{English(intermediate), Russian(native)}
+%            {Английский(средний уровень), Русский(родной)}}
+%  \cvline
+%    {\EngRus{Interests}{Интересы}}
+%    {\EngRus{Comedy, Philosophy}{Комедия, философия}}
+%}
 % ---------- Additional information --------------------------------------------
 
 % ---------- Footer ------------------------------------------------------------
