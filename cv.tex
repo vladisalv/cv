@@ -136,11 +136,11 @@
 \title{Software Engineer}
 \address{\EngRus{Moscow, Russia}{Россия, Москва}}
 \phone[mobile]{+7~916~576~66~39}
-\email{vtoigildin@protonmail.com}
+\email{vladisalv@yandex.ru}
 \extrainfo{%
   \\%
   \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
-  \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
+% \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
 }
 \photo[64pt][0.4pt]{photo.jpg}
 
@@ -149,8 +149,7 @@
 \quote{{\raggedleft\color{dark-gray}
   \EngRus{Changing professional field to~backend~development. Looking~for a small team
           creating services for~business~customers.}
-         {\normalsize Меняю сферу деятельности на~backend-разработку. Интересует работа в~небольшой команде,
-          которая находится в~прямом контакте с~заказчиком.}
+         {Ищу позицию backend-разработчика в~продуктовой~команде.}
 }}
 \let\originalrecomputecvlengths\recomputecvlengths
 \renewcommand*{\recomputecvlengths}{%
@@ -192,10 +191,59 @@
 }
 
 \cventry
+  {03.2021 -- 03.2022}
+  {\EngRus{Software Developer}{Разработчик}}
+  {Tinkoff}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+    \ifcompact{
+      \EngRus{{\itshape Development of a system for benchmarking DL frameworks (TensorFlow, PyTorch and etc).}}
+             {{\itshape Разработка платформы машинного обучения ML Core (golang, microservices).}}
+    }
+    \ifdetailed{
+      \EngRus{{Development of a system for benchmarking DL (TensorFlow, PyTorch and etc) frameworks using GPUs.}}
+             {{Разработка системы для тестирования производительности DL фреймворков (TensorFlow, PyTorch and etc) на графических ускорителях.}}
+      \vfill
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Redesigned a Deep Learning benchmark system that speeded a monthly test workflow up 5 times and increased reliability.}
+                       {Спроектировал и разработал систему для автоматизации тестирования.
+                        Ускорил весь цикл проведения тестов в 5 раз.}
+          \item \EngRus{I was a senior maintainer
+                        \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{for monthly baselines}}}
+                        performance data.}
+                       {Больше года был основным мейнтейнером данных
+                        \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{для~ежемесячных~отчетов}}}
+                        о~производительности нашего~железа.}
+          \item \EngRus{Actively troubleshot issues on Linux production servers.}
+                       {Регулярно фиксил баги на production-серверах.}
+          \item \EngRus{Modified Perl codebase to Python, that improved maintainability.}
+                       {Обновлял legacy-код приложений c Perl на Python.}
+          \item \EngRus{Migrated our system to cloud infrastracture.}
+                       {Принимал участие в создании облачной инфраструктуры.}
+          \item \EngRus{Developed DL benchmarks: preparing data and models, deploying, running,
+                        collecting data, uploading stats into databases.}
+                       {Разрабатывал бенчмарки для DL фреймворков:
+                        подготовка данных и моделей, деплой на сервера,
+                        запуск, сбор статистики, выгрузка результатов в базы данных.}
+        \end{itemize}
+      \end{adjustwidth}
+    }
+  }
+
+% crutch
+\ifdetailed{
+  \iflangEnglish{
+    \vspace{5mm}
+  }
+}
+
+\cventry
   {\EngRus{04.2019 -- present}{04.2019 -- н.в.}}
   {\EngRus{Founder}{Основатель}}
   {\href{https://oitheatre.ru}{\textcolor{blue}{\underline{\EngRus{Oi Theatre}{Ой Театр}}}}}
-  {}
+  {\EngRus{Moscow}{Москва}}
   {}
   {
     \ifcompact{
@@ -386,10 +434,10 @@
 
 \cvline
   {Languages}
-  {Python, Perl, Bash, C, C++}
+  {Golang, Python, Perl, Bash, C, C++}
 \cvline
-  {Frameworks}
-  {Flask (basic), Django (basic)}
+  {CI/CD}
+  {Docker, Kubernetes, GitLab CI}
 \cvline
   {OS}
   {Linux}
@@ -397,11 +445,8 @@
   {VCS}
   {Git}
 \cvline
-  {CI/CD}
-  {Docker, GitLab CI}
-\cvline
   {SQL}
-  {PostgreSQL}
+  {PostgreSQL, Redis}
 
 \ifdetailed{
   \cvline
