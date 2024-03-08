@@ -18,7 +18,7 @@
 # Workflow:
 # 1. edit cv.tex, compile using docker, view via mupdf reloader
 # 2. pdffonts output/your.pdf (check emb column yes)
-# 3. mv output/your.pdf TOIGILDIN_VLADISLAV_dev.pdf
+# 3. cp output/your.pdf TOIGILDIN_VLADISLAV_dev.pdf
 # 4. create git tag
 ################################################################
 

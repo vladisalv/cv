@@ -126,27 +126,27 @@
 
 \firstname{\EngRus{Vladislav}{Владислав}}
 \familyname{\EngRus{Toigildin}{Тойгильдин}}
-\title{Software Engineer}
+\title{Software Development Engineer}
 \address{\EngRus{Moscow, Russia}{Россия, Москва}}
 \phone[mobile]{+7~916~576~66~39}
 \email{vladisalv@yandex.ru}
-\extrainfo{%
-  \\%
-  \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
-% \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
-}
-\photo[64pt][0.4pt]{photo.jpg}
+%\extrainfo{%
+%  \\%
+%  \includegraphics[height=14pt]{github_logo.png}~\httplink[vladisalv]{github.com/vladisalv}\\
+%% \includegraphics[height=14pt]{linkedin_logo.png}~\httplink[vladisalv]{linkedin.com/in/vladisalv}
+%}
+%\photo[64pt][0.4pt]{photo.jpg}
 
 
-\definecolor{dark-gray}{gray}{0.2}
-\quote{{\raggedleft\color{dark-gray}
-  \EngRus{Looking for a backend developer position in a product team.}
-         {Ищу позицию backend-разработчика в~продуктовой~команде.}
-}}
-\let\originalrecomputecvlengths\recomputecvlengths
-\renewcommand*{\recomputecvlengths}{%
-\originalrecomputecvlengths%
-\setlength{\quotewidth}{0.8\textwidth}}
+%\definecolor{dark-gray}{gray}{0.2}
+%\quote{{\raggedleft\color{dark-gray}
+%  \EngRus{Looking for a backend developer position in a product team.}
+%         {Ищу позицию backend-разработчика в~продуктовой~команде.}
+%}}
+%\let\originalrecomputecvlengths\recomputecvlengths
+%\renewcommand*{\recomputecvlengths}{%
+%\originalrecomputecvlengths%
+%\setlength{\quotewidth}{0.8\textwidth}}
 
 %-------------------------------------------------------------------------------
 % BEGIN DOCUMENT
@@ -155,6 +155,7 @@
 \begin{document}
 
 \makecvtitle
+\vspace*{-1cm}
 
 % DEBUG OUTPUT
 \newtoggle{DEBUG}
@@ -175,12 +176,23 @@
 
 \section{\EngRus{Experience}{Опыт работы}}
 
-% crutch
-\ifdetailed{
-  \iflangEnglish{
-    \vspace{5mm}
+\cventry
+  {01.2023 -- 09.2023}
+  {\EngRus{Software Developer}{Разработчик}}
+  {Avito}
+  {\EngRus{Moscow}{Москва}}
+  {}
+  {
+      \EngRus{Goods b2b department}{Goods b2b department}
+      \begin{adjustwidth}{0.5cm}{0cm}
+        \begin{itemize}
+          \item \EngRus{Leaded as an architect a new internal service.}{}
+          \item \EngRus{Developed and advocated solutions at architectural committees.}{}
+          \item \EngRus{Released a new service to production for 5 months with 4-people team.}{}
+          \item \EngRus{Reduced a t2m business process (category restructing)\newline from 2 months to 1 week.}{}
+        \end{itemize}
+      \end{adjustwidth}
   }
-}
 
 \cventry
   {03.2021 -- 03.2022}
@@ -189,71 +201,16 @@
   {\EngRus{Moscow}{Москва}}
   {}
   {
-    \ifcompact{
-      \EngRus{{\itshape Development of a machine learning platform ML Core (golang, microservices).}}
-             {{\itshape Разработка платформы машинного обучения ML Core (golang, microservices).}}
-    }
-    \ifdetailed{
-        \EngRus{{Development of a machine learning platform ML Core (golang, microservices).}}
-             {{Разработка платформы машинного обучения ML Core (golang, microservices).}}
-      \vfill
-      \begin{adjustwidth}{0.5cm}{0cm}
-        \begin{itemize}
-          \item \EngRus{Designed and developed a microservice architecture since first product release.}
-                       {Разрабатывал микросервисную архитектуру системы с момента запуска платформы.}
-          \item \EngRus{Fully responsible for a client application.}
-                       {Полностью отвечал за клиентское приложение.}
-          \item \EngRus{Optimized CI/CD processes.}
-                       {Оптимизировал CI/CD процессы.}
-        \end{itemize}
-      \end{adjustwidth}
-    }
+    \EngRus{ML Core Platform}{ML Core Platform}
+    \begin{adjustwidth}{0.5cm}{0cm}
+      \begin{itemize}
+        \item \EngRus{Designed and developed a microservice architecture since first release.}
+                     {Разрабатывал микросервисную архитектуру системы с момента запуска платформы.}
+        \item \EngRus{Fully responsible for a client application.}
+                     {Полностью отвечал за клиентское приложение.}
+      \end{itemize}
+    \end{adjustwidth}
   }
-
-% crutch
-\ifdetailed{
-  \iflangEnglish{
-    \vspace{5mm}
-  }
-}
-
-%\cventry
-%  {\EngRus{04.2019 -- present}{04.2019 -- н.в.}}
-%  {\EngRus{Founder}{Основатель}}
-%  {\href{https://oitheatre.ru}{\textcolor{blue}{\underline{\EngRus{Oi Theatre}{Ой Театр}}}}}
-%  {\EngRus{Moscow}{Москва}}
-%  {}
-%  {
-%    \ifcompact{
-%      \EngRus{{\itshape First improv comedy theatre in Moscow. \textbf{Non-IT field.}}}
-%             {{\itshape Первый комедийный импров-театр Москвы. \textbf{Не IT-сфера.}}}
-%    }
-%    \ifdetailed{
-%        \EngRus{{\itshape First improv comedy theatre in Moscow. \textbf{Non-IT field.}}}
-%               {{\itshape Первый комедийный импров-театр Москвы. \textbf{Не IT-сфера.}}}
-%      \begin{adjustwidth}{0.5cm}{0cm}
-%        \begin{itemize}
-%          \item \EngRus{Built a business model of the theatre.}
-%                       {Построил бизнес-модель театра.}
-%          \item \EngRus{Organized a weekly comedy show.}
-%                       {Организовал еженедельное комедийное шоу.}
-%          \item \EngRus{Created a video production team and organized workflow for regular process.}
-%                       {Создал команду видеопродакшена и поставил производство контента на регулярную основу.}
-%          \item \EngRus{Produced two show formats. Actively trained a theatre cast (15~actors).}
-%                       {Спродюсировал два формата шоу. Тренировал труппу театра (15~актеров).}
-%          \item \EngRus{Managed an operation team (5~workers).}
-%                       {Управлял командой операционных процессов (5~работников).}
-%        \end{itemize}
-%      \end{adjustwidth}
-%    }
-%  }
-
-% crutch
-\ifdetailed{
-  \iflangEnglish{
-    \vspace{5mm}
-  }
-}
 
 \cventry
   {11.2016 -- 01.2019}
@@ -262,47 +219,20 @@
   {\EngRus{Moscow}{Москва}}
   {}
   {
-    \ifcompact{
-      \EngRus{{\itshape Development of a system for benchmarking DL frameworks (TensorFlow, PyTorch and etc).}}
-             {{\itshape Разработка системы для тестирования DL фреймворков (TensorFlow, PyTorch and etc).}}
-    }
-    \ifdetailed{
-      \EngRus{{Development of a system for benchmarking DL (TensorFlow, PyTorch and etc) frameworks using GPUs.}}
-             {{Разработка системы для тестирования производительности DL фреймворков (TensorFlow, PyTorch and etc) на графических ускорителях.}}
-      \vfill
-      \begin{adjustwidth}{0.5cm}{0cm}
-        \begin{itemize}
-          \item \EngRus{Redesigned a Deep Learning benchmark system that speeded a monthly test workflow up 5 times and increased reliability.}
-                       {Спроектировал и разработал систему для автоматизации тестирования.
-                        Ускорил весь цикл проведения тестов в 5 раз.}
-          \item \EngRus{I was a senior maintainer
-                        \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{for monthly baselines}}}
-                        performance data.}
-                       {Больше года был основным мейнтейнером данных
-                        \href{https://developer.nvidia.com/deep-learning-performance-training-inference}{\textcolor{blue}{\underline{для~ежемесячных~отчетов}}}
-                        о~производительности нашего~железа.}
-          \item \EngRus{Actively troubleshot issues on Linux production servers.}
-                       {Регулярно фиксил баги на production-серверах.}
-          \item \EngRus{Modified Perl codebase to Python, that improved maintainability.}
-                       {Обновлял legacy-код приложений c Perl на Python.}
-          \item \EngRus{Migrated our system to cloud infrastracture.}
-                       {Принимал участие в создании облачной инфраструктуры.}
-          \item \EngRus{Developed DL benchmarks: preparing data and models, deploying, running,
-                        collecting data, uploading stats into databases.}
-                       {Разрабатывал бенчмарки для DL фреймворков:
-                        подготовка данных и моделей, деплой на сервера,
-                        запуск, сбор статистики, выгрузка результатов в базы данных.}
-        \end{itemize}
-      \end{adjustwidth}
-    }
+    \EngRus{Perf Lab}{Perf Lab}
+    \begin{adjustwidth}{0.5cm}{0cm}
+      \begin{itemize}
+        \item \EngRus{Redesigned a Deep Learning benchmark system that speeded a monthly test workflow up 5 times and increased reliability.}{}
+        \item \EngRus{I was a senior maintainer
+                       \href{https://developer.nvidia.com/deep-learning-performance-training-inference}
+                       {\textcolor{blue}{\underline{for monthly baselines}}}
+                       performance data.\newline200k+ perf tests at the end, personal responsibility.}
+                     {}
+        \item \EngRus{Modified Perl codebase to Python, that improved maintainability.}{}
+        \item \EngRus{Actively troubleshot issues on Linux production servers.}{}
+      \end{itemize}
+    \end{adjustwidth}
   }
-
-% crutch
-\ifdetailed{
-  \iflangEnglish{
-    \vspace{5mm}
-  }
-}
 
 \cventry
   {06.2015 -- 03.2016}
@@ -311,24 +241,12 @@
   {\EngRus{Moscow}{Москва}}
   {}
   {
-    \ifcompact{
-      \EngRus{{\itshape Linux on IBM z System SAN component development.}}
-             {{\itshape Разработка подсистемы SAN ОС Linux для аппаратной платформы IBM z System.}}
-    }
-    \ifdetailed{
-      \EngRus{{Development of a Linux driver (zfcp) for IBM z System (s390x) storage hardware.}}
-             {{Разработка Linux драйвера для устройств хранения данных
-              аппаратной платформы IBM z System (s390x).}}
-      \vfill
-      \begin{adjustwidth}{0.5cm}{0cm}
-        \begin{itemize}
-          \item \EngRus{Developed a Linux driver for SCSI devices.}
-                       {Разрабатывал Linux драйвер для SCSI-устройств хранения данных.}
-          \item \EngRus{Modified an internal disk perf analyze tool (C++ and Perl).}
-                       {Модифицировал внутреннюю утилиту анализа производительности дисков (C++ и Perl).}
-        \end{itemize}
-      \end{adjustwidth}
-    }
+    \begin{adjustwidth}{0.5cm}{0cm}
+      \begin{itemize}
+        \item \EngRus{Developed a Linux driver for SCSI devices for IBM z System.}
+                     {Разрабатывал Linux драйвер для SCSI-устройств хранения данных.}
+      \end{itemize}
+    \end{adjustwidth}
   }
 
 \cventry
@@ -339,60 +257,13 @@
   {\EngRus{Moscow}{Москва}}
   {}
   {
-    \ifcompact{
-      \EngRus{{\itshape Design and development of a parallel version of the algorithm
-              of repeats search in biological sequence.}}
-             {{\itshape Проектирование и разработка параллельной версии алгоритма
-              поиска повторов в биологических последовательностях.}}
-    }
-    \ifdetailed{
-      \EngRus{Design and development of a parallel version of algorithm
-              for genome blurred repeats search.}
-             {Проектирование и разработка параллельной версии алгоритма
-              поиска неточных повторов в геноме.}
-      \vfill
-      \begin{adjustwidth}{0.5cm}{0cm}
-        \begin{itemize}
-%          \item \EngRus{Developed a parallel spectral-analytical method
-%                        for heterogeneous distributed multiprocessing systems.}
-%                       {Разработал алгоритм для параллельного спектрально-аналитического метода
-%                        для гетерогенных многопроцессорных систем с распределенной памятью.}
-%          \item \EngRus{Designed a object-oriented architecture for flexible balancing between computational nodes.}
-%                       {Спроектировал объектно-ориентированную архитектуру, позволяющую
-%                        настраивать гибкую балансировку между узлами вычислительной сети.}
-          \item \EngRus{Developed the parallel program using MPI and CUDA.}
-                       {Разработал параллельную программу для алгоритма биоинформатики (C++/MPI/Cuda).}
-%          \item \EngRus{Optimized the parallel program for linear scale up to 2048 processors.}
-%                       {Поднял масштабируемость алгоритма до линейной вплоть до 2048 процессоров.}
-        \end{itemize}
-      \end{adjustwidth}
-    }
+    \begin{adjustwidth}{0.5cm}{0cm}
+      \begin{itemize}
+        \item \EngRus{Designed and developed an algorithm of repeats search in DNA.}{}
+        \item \EngRus{Speeded it up using MPI and CUDA (almost linear scale on 4096 nodes).}{}
+      \end{itemize}
+    \end{adjustwidth}
   }
-
-\ifdetailed{
-  \iflangEnglish{
-    \cventry
-      {11.2013 -- 10.2014}
-      {\EngRus{Technician (Part Time)}{Техник-программист (частичная занятость)}}
-      {\EngRus{Nuclear Safety Institute of~the~Russian Academy of~Sciences}{ИБРАЭ РАН}}
-      {\EngRus{Moscow}{Москва}}
-      {}
-      {
-        \EngRus{{\ifcompact{\itshape}Development of a model of hydrodynamic process in liquids using CABARET scheme.}}
-               {{\ifcompact{\itshape}Разработка модели течения вязких жидкостей использующей схему КАБАРЕ.}}
-        \ifdetailed{
-          \begin{adjustwidth}{0.5cm}{0cm}
-            \begin{itemize}
-              \item \EngRus{Designed and implemented GUI (Qt).}
-                           {Спроектировал и реализовал графический интерфейс основной программы (Qt).}
-              \item \EngRus{Added GPU computing support (Cuda)}
-                           {Добавил поддержку вычислений на графических устройствах (Cuda).}
-            \end{itemize}
-          \end{adjustwidth}
-        }
-      }
-  }
-}
 
 %-------------------------------------------------------------------------------
 % TECHNICAL SKILLS
@@ -402,28 +273,13 @@
 
 \cvline
   {Languages}
-  {Golang, Python, Perl, Bash, C, C++}
+  {Golang, Python (prior experience: Perl/Bash/C/Cpp)}
 \cvline
   {CI/CD}
-  {Docker, Kubernetes, GitLab CI}
-\cvline
-  {OS}
-  {Linux}
-\cvline
-  {VCS}
-  {Git}
+  {Linux, Docker, Kubernetes, GitLab CI}
 \cvline
   {SQL}
   {PostgreSQL, Redis}
-
-\ifdetailed{
-  \cvline
-    {HPC}
-    {MPI, Cuda, OpenMP}
-  \cvline
-    {Others}
-    {Qt, \LaTeX, Autotools}
-}
 
 %-------------------------------------------------------------------------------
 % EDUCATION
@@ -433,47 +289,11 @@
 
 \cventry
   {2010 -- 2015}
-  {\EngRus{M.S. in Applied Mathematics and Computer Science}
-          {Специалист по прикладной математике и информатике}%
-  }
-  {\ifcompact{%
-     \EngRus{CMC}
-            {ВМК}%
-   }%
-  }
+  {\EngRus{M.S. in Applied Mathematics and Computer Science}{Специалист по прикладной математике и информатике}}
+  {\EngRus{CMC}{ВМК}}
   {\EngRus{Lomonosov Moscow State University}{МГУ им. М.В. Ломоносова}}
   {\EngRus{Moscow}{Москва}}
-  {\ifdetailed{%
-     \EngRus{Faculty of Computational Mathematics and Cybernetics}
-            {Факультет Вычислительной Математики и Кибернетики}%
-   }%
-  }
   {}
-%  {\ifdetailed{
-%     \vfill
-%     \begin{adjustwidth}{0.5cm}{0cm}
-%       \begin{itemize}
-%         \item \EngRus{Qualification: specialist in mathematics and system programming}
-%                      {Квалификация: математик, системный программист}
-%         \item \EngRus{Department of Supercomputers and Quantum Informatics}
-%                      {Кафедра Суперкомпьютеров и Квантовой Информатики}
-%         \item \EngRus{Specialization: high performance computing}
-%                      {Специализация: высокопроизводительные вычисления}
-%         \item \EngRus{Master thesis "Research and development of parallel
-%                       algorithm for genome blurred repeats search"}
-%                      {Дипломная работа "Разработка и исследование параллельного
-%                       алгоритма поиска неточных повторов в геноме"}
-%         \item \EngRus{Knowledges: Algorithms and Data structures, Parallel data processing,
-%                       Operating systems, Databases, Computer architecture and assembler language,
-%                       Mathematical analysis, Discrete mathematics, Numerical methods and others.}
-%                      {Прослушанные курсы: Алгоритмы и алгоритмические языки,
-%                       Суперкомпьютеры и параллельная обработка данных,
-%                       Операционные системы, Базы данных, Архитектура ЭВМ и язык ассемблера,
-%                       Математический анализ, Дискретная математика, Численные методы и другие.}
-%       \end{itemize}
-%     \end{adjustwidth}
-%   }
-%  }
 
 %-------------------------------------------------------------------------------
 % PUBLICATIONS, AWARDS, OPEN SOURCE PROJECT, ADDITIONAL INFO AND FOOTER
@@ -511,37 +331,35 @@
 % ---------- End Publications --------------------------------------------------
 
 % ---------- Awards ------------------------------------------------------------
-\ifdetailed{
-  \section{\EngRus{Awards}{Награды}}
-  \cventry
-    {2014}
-    {\EngRus{CUDA Center of Excellence MSU Grant}
-            {Стипендия от CUDA Center of Excellence МГУ}%
-    }
-    {}
-    {\EngRus{Moscow}{Москва}}
-    {}
-    {\EngRus{\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Won a grant}}}
-             for significant acceleration of computing for~my~research by~using GPU.}
-            {\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Выиграл стипендию}}}
-            за существенное ускорение вычислений для своей исследовательской работы
-            за счет применения графических процессоров.}%
-    }
-}
+%\section{\EngRus{Awards}{Награды}}
+%\cventry
+%  {2014}
+%  {\EngRus{CUDA Center of Excellence MSU Grant}
+%          {Стипендия от CUDA Center of Excellence МГУ}%
+%  }
+%  {}
+%  {\EngRus{Moscow}{Москва}}
+%  {}
+%  {\EngRus{\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Won a grant}}}
+%           for significant acceleration of computing for~my~research by~using GPU.}
+%          {\normalsize \href{http://ccoe.msu.ru/ru/node/64}{\textcolor{blue}{\underline{Выиграл стипендию}}}
+%          за существенное ускорение вычислений для своей исследовательской работы
+%          за счет применения графических процессоров.}%
+%  }
 % ---------- End Awards --------------------------------------------------------
 
 % ---------- Open Source -------------------------------------------------------
-\ifdetailed{
-  \section{\EngRus{Open Source Project}{Open Source Проекты}}
-  \cvline
-    {\href{https://github.com/vladisalv/mpisbars}{\textcolor{blue}{\underline{mpiSBARS}}}}
-    {\EngRus{Parallel program for recognition of extended inexact repeats in~the~genome.
-             MPI+CUDA model is used for better scalability on heterogeneous high performance systems.}
-            {Параллельная программа для поиска неточных протяженных повторов
-             в биологических последовательностях. Используется модель MPI+CUDA
-             для достижения лучшей масштабируемости на современных гетерогенных системах.}
-    }
-}
+%\ifdetailed{
+%  \section{\EngRus{Open Source Project}{Open Source Проекты}}
+%  \cvline
+%    {\href{https://github.com/vladisalv/mpisbars}{\textcolor{blue}{\underline{mpiSBARS}}}}
+%    {\EngRus{Parallel program for recognition of extended inexact repeats in~the~genome.
+%             MPI+CUDA model is used for better scalability on heterogeneous high performance systems.}
+%            {Параллельная программа для поиска неточных протяженных повторов
+%             в биологических последовательностях. Используется модель MPI+CUDA
+%             для достижения лучшей масштабируемости на современных гетерогенных системах.}
+%    }
+%}
 % ---------- End Open Source ---------------------------------------------------
 
 % ---------- Additional information --------------------------------------------
@@ -563,11 +381,5 @@
               \href{https://github.com/vladisalv/cv}{\underline{here}}.\newline
               Last updated: \today\-}
 % ---------- End Footer --------------------------------------------------------
-
-% @PLAN: English(IELTS 7.0 Overall: 6.0L, 7.0R, 8.0W, 7.0S) after IELTS
-% @PLAN: add section Communication Skills/Public Activity
-% @PLAN: section Education:
-% \subsection{University}
-% \subsection{MOOOCs (Coursera)} (https://en.wikipedia.org/wiki/Massive_open_online_course)
 
 \end{document}
